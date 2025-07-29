@@ -287,7 +287,7 @@ describe('calc', function () {
                 var Milotic = Pokemon('Milotic', {
                     item: 'Flame Orb',
                     nature: 'Bold',
-                    ability: 'Marvel Scale',
+                    ability: 'Écaille Spéciale',
                     evs: { hp: 248, def: 184 },
                     status: 'brn',
                     boosts: { spd: 1 }
@@ -412,9 +412,9 @@ describe('calc', function () {
                 expect(result.range()).toEqual([346, 408]);
                 expect(result.desc()).toBe('100 Atk Gengar Focus Punch vs. 252 HP / 252+ Def Chansey: 346-408 (49.1 - 57.9%) -- 59% chance to 2HKO after Leftovers recovery');
             });
-            test('Water Absorb', function () {
+            test('Absorbe-Eau', function () {
                 var cacturne = Pokemon('Cacturne', {
-                    ability: 'Sand Veil'
+                    ability: 'Voile Sable'
                 });
                 var blastoise = Pokemon('Blastoise', {
                     evs: { spa: 252 }
@@ -423,7 +423,7 @@ describe('calc', function () {
                 var result = calculate(blastoise, cacturne, surf);
                 expect(result.range()).toEqual([88, 104]);
                 expect(result.desc()).toBe('252 SpA Blastoise Surf vs. 0 HP / 0 SpD Cacturne: 88-104 (31.3 - 37%) -- 76.6% chance to 3HKO');
-                cacturne.ability = 'Water Absorb';
+                cacturne.ability = 'Absorbe-Eau';
                 result = calculate(blastoise, cacturne, surf);
                 expect(result.damage).toBe(0);
             });
@@ -472,7 +472,7 @@ describe('calc', function () {
                 expect(result.range()).toEqual([408, 482]);
                 expect(result.desc()).toBe('+1 252 SpA Choice Specs Gengar Focus Blast vs. 252 HP / 252+ SpD Chansey: 408-482 (57.9 - 68.4%) -- guaranteed 2HKO after Leftovers recovery');
             });
-            test('Mold Breaker', function () {
+            test('Brise Moule', function () {
                 var pinsir = Pokemon('Pinsir', {
                     item: 'Choice Band',
                     nature: 'Adamant',
@@ -488,12 +488,12 @@ describe('calc', function () {
                 var earthquake = Move('Earthquake');
                 var result = calculate(pinsir, gengar, earthquake);
                 expect(result.damage).toBe(0);
-                pinsir.ability = 'Mold Breaker';
+                pinsir.ability = 'Brise Moule';
                 result = calculate(pinsir, gengar, earthquake);
                 expect(result.range()).toEqual([528, 622]);
                 expect(result.desc()).toBe('252+ Atk Choice Band Mold Breaker Pinsir Earthquake vs. 0 HP / 0 Def Gengar: 528-622 (202.2 - 238.3%) -- guaranteed OHKO');
                 pinsir.boosts.atk = 2;
-                gengar.ability = 'Unaware';
+                gengar.ability = 'Inconscient';
                 result = calculate(pinsir, gengar, earthquake);
                 expect(result.range()).toEqual([1054, 1240]);
             });
@@ -517,7 +517,7 @@ describe('calc', function () {
                 expect(result.fullDesc('px')).toBe('+1 252 SpA Choice Specs Gengar Focus Blast vs. 252 HP / 252+ SpD Eviolite Chansey: 274-324 (18 - 22px) -- guaranteed 3HKO');
             });
             test('Technician with Low Kick', function () {
-                var ambipom = Pokemon('Ambipom', { level: 50, ability: 'Technician' });
+                var ambipom = Pokemon('Ambipom', { level: 50, ability: 'Technicien' });
                 var blissey = Pokemon('Blissey', { level: 50, evs: { hp: 252 } });
                 var result = calculate(ambipom, blissey, Move('Low Kick'));
                 expect(result.range()).toEqual([272, 320]);
@@ -552,13 +552,13 @@ describe('calc', function () {
             var calculate = _a.calculate, Pokemon = _a.Pokemon, Move = _a.Move, Field = _a.Field;
             var abomasnow = Pokemon('Abomasnow', {
                 item: 'Icy Rock',
-                ability: 'Snow Warning',
+                ability: 'Alerte Neige',
                 nature: 'Hasty',
                 evs: { atk: 252, spd: 4, spe: 252 }
             });
             var hoopa = Pokemon('Hoopa-Unbound', {
                 item: 'Choice Band',
-                ability: 'Magician',
+                ability: 'Magicien',
                 nature: 'Jolly',
                 evs: { hp: 32, atk: 224, spe: 252 }
             });
@@ -620,13 +620,13 @@ describe('calc', function () {
                     ' -- 91.4% chance to 3HKO after Stealth Rock, 1 layer of Spikes, hail damage, Leech Seed damage, and Grassy Terrain recovery');
             });
             test('Wring Out', function () {
-                var smeargle = Pokemon('Smeargle', { level: 50, ability: 'Technician' });
+                var smeargle = Pokemon('Smeargle', { level: 50, ability: 'Technicien' });
                 var blissey = Pokemon('Blissey', { level: 50, evs: { hp: 252 }, curHP: 184 });
                 var result = calculate(smeargle, blissey, Move('Wring Out'));
                 expect(result.range()).toEqual([15, 18]);
                 expect(result.desc()).toBe('0 SpA Technician Smeargle Wring Out (60 BP) vs. 252 HP / 0 SpD Blissey: 15-18 (4.1 - 4.9%)');
             });
-            test('Mold Breaker', function () {
+            test('Brise Moule', function () {
                 var pinsir = Pokemon('Pinsir', {
                     item: 'Choice Band',
                     nature: 'Adamant',
@@ -636,19 +636,19 @@ describe('calc', function () {
                 var gengar = Pokemon('Gengar', {
                     item: 'Choice Specs',
                     nature: 'Timid',
-                    ability: 'Levitate',
+                    ability: 'Lévitation',
                     evs: { spa: 252 },
                     boosts: { spa: 1 }
                 });
                 var earthquake = Move('Earthquake');
                 var result = calculate(pinsir, gengar, earthquake);
                 expect(result.damage).toBe(0);
-                pinsir.ability = 'Mold Breaker';
+                pinsir.ability = 'Brise Moule';
                 result = calculate(pinsir, gengar, earthquake);
                 expect(result.range()).toEqual([528, 622]);
                 expect(result.desc()).toBe('252+ Atk Choice Band Mold Breaker Pinsir Earthquake vs. 0 HP / 0 Def Gengar: 528-622 (202.2 - 238.3%) -- guaranteed OHKO');
                 pinsir.boosts.atk = 2;
-                gengar.ability = 'Unaware';
+                gengar.ability = 'Inconscient';
                 result = calculate(pinsir, gengar, earthquake);
                 expect(result.range()).toEqual([1054, 1240]);
             });
@@ -663,7 +663,7 @@ describe('calc', function () {
             });
             test('32-bit Overflow', function () {
                 var kyogre = Pokemon('Kyogre', {
-                    ability: 'Water Bubble',
+                    ability: 'Aquabulle',
                     item: 'Choice Specs',
                     curHP: 340,
                     ivs: { spa: 6 },
@@ -697,14 +697,14 @@ describe('calc', function () {
                 expect(result.desc()).toBe('+3 252+ SpA Life Orb Gengar Sludge Bomb vs. +1 100 HP / 100 SpD Eviolite Chansey: 204-242 (30.6 - 36.3%) -- 52.9% chance to 3HKO');
             });
             test('Knock Off vs. Silvally', function () {
-                var sawk = Pokemon('Sawk', { ability: 'Mold Breaker', evs: { atk: 252 } });
+                var sawk = Pokemon('Sawk', { ability: 'Brise Moule', evs: { atk: 252 } });
                 var silvally = Pokemon('Silvally-Dark', { item: 'Dark Memory' });
                 var knockoff = Move('Knock Off');
                 var result = calculate(sawk, silvally, knockoff);
                 expect(result.desc()).toBe('252 Atk Mold Breaker Sawk Knock Off vs. 0 HP / 0 Def Silvally-Dark: 36-43 (10.8 - 12.9%) -- possible 8HKO');
             });
             test('-ate Abilities', function () {
-                var sylveon = Pokemon('Sylveon', { ability: 'Pixilate', evs: { spa: 252 } });
+                var sylveon = Pokemon('Sylveon', { ability: 'Peau Féérique', evs: { spa: 252 } });
                 var silvally = Pokemon('Silvally');
                 var hypervoice = Move('Hyper Voice');
                 var result = calculate(sylveon, silvally, hypervoice);
@@ -734,7 +734,7 @@ describe('calc', function () {
                 expect(result.desc()).toBe('252 SpA Choice Specs Kyurem Earth Power vs. 0 HP / 0 SpD Jirachi: 294-348 (86.2 - 102%) -- 12.5% chance to OHKO');
             });
             test('Technician with Low Kick', function () {
-                var ambipom = Pokemon('Ambipom', { level: 50, ability: 'Technician' });
+                var ambipom = Pokemon('Ambipom', { level: 50, ability: 'Technicien' });
                 var blissey = Pokemon('Blissey', { level: 50, evs: { hp: 252 } });
                 var result = calculate(ambipom, blissey, Move('Low Kick'));
                 expect(result.range()).toEqual([272, 320]);
@@ -748,8 +748,8 @@ describe('calc', function () {
         describe('Gen 9', function () {
             (0, helper_1.inGen)(9, function (_a) {
                 var calculate = _a.calculate, Pokemon = _a.Pokemon, Move = _a.Move;
-                test('Supreme Overlord', function () {
-                    var kingambit = Pokemon('Kingambit', { level: 100, ability: 'Supreme Overlord', alliesFainted: 0 });
+                test('Général Suprême', function () {
+                    var kingambit = Pokemon('Kingambit', { level: 100, ability: 'Général Suprême', alliesFainted: 0 });
                     var aggron = Pokemon('Aggron', { level: 100 });
                     var result = calculate(kingambit, aggron, Move('Iron Head'));
                     expect(result.range()).toEqual([67, 79]);

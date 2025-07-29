@@ -10,7 +10,7 @@ describe('Pokemon', function () {
         expect(p.level).toBe(100);
         expect(p.gender).toBe('M');
         expect(p.item).toBeUndefined();
-        expect(p.ability).toBe('Cursed Body');
+        expect(p.ability).toBe('Corps Maudit');
         expect(p.nature).toBe('Serious');
         expect(p.status).toBe('');
         expect(p.hasStatus()).toBe(false);
@@ -27,7 +27,7 @@ describe('Pokemon', function () {
     test('Pokemon full', function () {
         var p = new index_1.Pokemon(7, 'Suicune', {
             level: 50,
-            ability: 'Inner Focus',
+            ability: 'Attention',
             item: 'Leftovers',
             nature: 'Bold',
             ivs: { spa: 30 },
@@ -44,7 +44,7 @@ describe('Pokemon', function () {
         expect(p.level).toBe(50);
         expect(p.gender).toBe('N');
         expect(p.item).toBe('Leftovers');
-        expect(p.ability).toBe('Inner Focus');
+        expect(p.ability).toBe('Attention');
         expect(p.nature).toBe('Bold');
         expect(p.status).toBe('tox');
         expect(p.toxicCounter).toBe(2);

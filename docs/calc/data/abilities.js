@@ -290,8 +290,8 @@ var SM = XY.concat([
     'Escampette',
 ]);
 var SS = SM.concat([
-    'As One (Glastrier)',
-    'As One (Spectrier)',
+    'Osmose Équine (Blizzeval)',
+    'Osmose Équine (Spectreval)',
     'Batterie',
     'Blanche Ruade',
     'Effilochage',

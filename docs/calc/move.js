@@ -47,7 +47,7 @@ var Move = (function () {
                     this.hits = options.hits;
                 }
                 else {
-                    this.hits = (options.ability === 'Skill Link')
+                    this.hits = (options.ability === 'Multi-Coups')
                         ? data.multihit[1]
                         : data.multihit[0] + 1;
                 }
@@ -195,7 +195,7 @@ var ZMOVES_TYPING = {
 function getMaxMoveName(moveType, pokemonSpecies, isStatus, pokemonAbility) {
     if (isStatus)
         return 'Max Guard';
-    if (pokemonAbility === 'Normalize')
+    if (pokemonAbility === 'Normalise')
         return 'Max Strike';
     if (moveType === 'Fire') {
         if (pokemonSpecies === 'Charizard-Gmax')
@@ -212,13 +212,13 @@ function getMaxMoveName(moveType, pokemonSpecies, isStatus, pokemonAbility) {
             return 'G-Max Gold Rush';
         if (pokemonSpecies === 'Snorlax-Gmax')
             return 'G-Max Replenish';
-        if (pokemonAbility === 'Pixilate')
+        if (pokemonAbility === 'Peau Féérique')
             return 'Max Starfall';
-        if (pokemonAbility === 'Aerilate')
+        if (pokemonAbility === 'Peau Céleste')
             return 'Max Airstream';
-        if (pokemonAbility === 'Refrigerate')
+        if (pokemonAbility === 'Peau Gelée')
             return 'Max Hailstorm';
-        if (pokemonAbility === 'Galvanize')
+        if (pokemonAbility === 'Peau Électrique')
             return 'Max Lightning';
     }
     if (moveType === 'Fairy') {

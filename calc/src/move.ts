@@ -97,7 +97,7 @@ export class Move implements State.Move {
         } else if (options.hits) {
           this.hits = options.hits;
         } else {
-          this.hits = (options.ability === 'Skill Link')
+          this.hits = (options.ability === 'Multi-Coups')
             ? data.multihit[1]
             : data.multihit[0] + 1;
         }
@@ -242,7 +242,7 @@ export function getMaxMoveName(
   pokemonAbility?: string
 ) {
   if (isStatus) return 'Max Guard';
-  if (pokemonAbility === 'Normalize') return 'Max Strike';
+  if (pokemonAbility === 'Normalise') return 'Max Strike';
   if (moveType === 'Fire') {
     if (pokemonSpecies === 'Charizard-Gmax') return 'G-Max Wildfire';
     if (pokemonSpecies === 'Centiskorch-Gmax') return 'G-Max Centiferno';
@@ -252,10 +252,10 @@ export function getMaxMoveName(
     if (pokemonSpecies === 'Eevee-Gmax') return 'G-Max Cuddle';
     if (pokemonSpecies === 'Meowth-Gmax') return 'G-Max Gold Rush';
     if (pokemonSpecies === 'Snorlax-Gmax') return 'G-Max Replenish';
-    if (pokemonAbility === 'Pixilate') return 'Max Starfall';
-    if (pokemonAbility === 'Aerilate') return 'Max Airstream';
-    if (pokemonAbility === 'Refrigerate') return 'Max Hailstorm';
-    if (pokemonAbility === 'Galvanize') return 'Max Lightning';
+    if (pokemonAbility === 'Peau Féérique') return 'Max Starfall';
+    if (pokemonAbility === 'Peau Céleste') return 'Max Airstream';
+    if (pokemonAbility === 'Peau Gelée') return 'Max Hailstorm';
+    if (pokemonAbility === 'Peau Électrique') return 'Max Lightning';
   }
   if (moveType === 'Fairy') {
     if (pokemonSpecies === 'Alcremie-Gmax') return 'G-Max Finale';

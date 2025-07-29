@@ -77,12 +77,12 @@ export function calculateADV(
     return result;
   }
 
-  if ((defender.hasAbility('Flash Fire') && move.hasType('Fire')) ||
-      (defender.hasAbility('Levitate') && move.hasType('Ground')) ||
-      (defender.hasAbility('Volt Absorb') && move.hasType('Electric')) ||
-      (defender.hasAbility('Water Absorb') && move.hasType('Water')) ||
-      (defender.hasAbility('Wonder Guard') && !move.hasType('???') && typeEffectiveness <= 1) ||
-      (defender.hasAbility('Soundproof') && move.flags.sound)
+  if ((defender.hasAbility('Torche') && move.hasType('Fire')) ||
+      (defender.hasAbility('Lévitation') && move.hasType('Ground')) ||
+      (defender.hasAbility('Absorbe-Volt') && move.hasType('Electric')) ||
+      (defender.hasAbility('Absorbe-Eau') && move.hasType('Water')) ||
+      (defender.hasAbility('Garde Mystik') && !move.hasType('???') && typeEffectiveness <= 1) ||
+      (defender.hasAbility('Anti-Bruit') && move.flags.sound)
   ) {
     desc.defenderAbility = defender.ability;
     return result;
@@ -146,7 +146,7 @@ export function calculateADV(
   let at = attacker.rawStats[attackStat];
   let df = defender.rawStats[defenseStat];
 
-  if (isPhysical && attacker.hasAbility('Huge Power', 'Pure Power')) {
+  if (isPhysical && attacker.hasAbility('Coloforce', 'Force Pure')) {
     at *= 2;
     desc.attackerAbility = attacker.ability;
   }
@@ -183,25 +183,25 @@ export function calculateADV(
     desc.defenderItem = defender.item;
   }
 
-  if (defender.hasAbility('Thick Fat') && (move.hasType('Fire', 'Ice'))) {
+  if (defender.hasAbility('Isograisse') && (move.hasType('Fire', 'Ice'))) {
     at = Math.floor(at / 2);
     desc.defenderAbility = defender.ability;
-  } else if (isPhysical && defender.hasAbility('Marvel Scale') && defender.status) {
+  } else if (isPhysical && defender.hasAbility('Écaille Spéciale') && defender.status) {
     df = Math.floor(df * 1.5);
     desc.defenderAbility = defender.ability;
   }
 
   if ((isPhysical &&
-        (attacker.hasAbility('Hustle') || (attacker.hasAbility('Guts') && attacker.status))) ||
-      (!isPhysical && attacker.abilityOn && attacker.hasAbility('Plus', 'Minus'))
+        (attacker.hasAbility('Agitation') || (attacker.hasAbility('Cran') && attacker.status))) ||
+      (!isPhysical && attacker.abilityOn && attacker.hasAbility('Plus', 'Moins'))
   ) {
     at = Math.floor(at * 1.5);
     desc.attackerAbility = attacker.ability;
   } else if (attacker.curHP() <= attacker.maxHP() / 3 &&
-    ((attacker.hasAbility('Overgrow') && move.hasType('Grass')) ||
-     (attacker.hasAbility('Blaze') && move.hasType('Fire')) ||
+    ((attacker.hasAbility('Engrais') && move.hasType('Grass')) ||
+     (attacker.hasAbility('Brasier') && move.hasType('Fire')) ||
      (attacker.hasAbility('Torrent') && move.hasType('Water')) ||
-     (attacker.hasAbility('Swarm') && move.hasType('Bug')))
+     (attacker.hasAbility('Essaim') && move.hasType('Bug')))
   ) {
     bp = Math.floor(bp * 1.5);
     desc.attackerAbility = attacker.ability;
@@ -211,7 +211,7 @@ export function calculateADV(
     df = Math.floor(df / 2);
   }
 
-  const isCritical = move.isCrit && !defender.hasAbility('Battle Armor', 'Shell Armor');
+  const isCritical = move.isCrit && !defender.hasAbility('Armurbaston', 'Coque Armure');
 
   const attackBoost = attacker.boosts[attackStat];
   const defenseBoost = defender.boosts[defenseStat];
@@ -227,7 +227,7 @@ export function calculateADV(
   const lv = attacker.level;
   let baseDamage = Math.floor(Math.floor((Math.floor((2 * lv) / 5 + 2) * at * bp) / df) / 50);
 
-  if (attacker.hasStatus('brn') && isPhysical && !attacker.hasAbility('Guts')) {
+  if (attacker.hasStatus('brn') && isPhysical && !attacker.hasAbility('Cran')) {
     baseDamage = Math.floor(baseDamage / 2);
     desc.isBurned = true;
   }
@@ -265,9 +265,9 @@ export function calculateADV(
     desc.weather = field.weather;
   }
 
-  if (attacker.hasAbility('Flash Fire') && attacker.abilityOn && move.hasType('Fire')) {
+  if (attacker.hasAbility('Torche') && attacker.abilityOn && move.hasType('Fire')) {
     baseDamage = Math.floor(baseDamage * 1.5);
-    desc.attackerAbility = 'Flash Fire';
+    desc.attackerAbility = 'Torche';
   }
 
   baseDamage = (move.category === 'Physical' ? Math.max(1, baseDamage) : baseDamage) + 2;

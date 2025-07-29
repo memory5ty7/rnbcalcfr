@@ -222,11 +222,11 @@ $(".percent-hp").keyup(function () {
 });
 
 $(".ability").bind("keyup change", function () {
-	$(this).closest(".poke-info").find(".move-hits").val($(this).val() === 'Skill Link' ? 5 : 3);
+	$(this).closest(".poke-info").find(".move-hits").val($(this).val() === 'Multi-Coups' ? 5 : 3);
 
 	var ability = $(this).closest(".poke-info").find(".ability").val();
 
-	var TOGGLE_ABILITIES = ['Flash Fire', 'Intimidate', 'Minus', 'Plus', 'Slow Start', 'Unburden', 'Stakeout'];
+	var TOGGLE_ABILITIES = ['Torche', 'Intimidation', 'Moins', 'Plus', 'Début Calme', 'Délestage', 'Filature'];
 
 	if (TOGGLE_ABILITIES.indexOf(ability) >= 0) {
 		$(this).closest(".poke-info").find(".abilityToggle").show();
@@ -419,7 +419,7 @@ $(".move-selector").change(function () {
 		moveGroupObj.children(".stat-drops").hide();
 		moveGroupObj.children(".move-hits").show();
 		var pokemon = $(this).closest(".poke-info");
-		var moveHits = (pokemon.find(".ability").val() === 'Skill Link') ? 5 : 3;
+		var moveHits = (pokemon.find(".ability").val() === 'Multi-Coups') ? 5 : 3;
 		moveGroupObj.children(".move-hits").val(moveHits);
 	} else if (dropsStats) {
 		moveGroupObj.children(".move-hits").hide();

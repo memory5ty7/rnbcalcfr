@@ -254,7 +254,7 @@ describe('calc', () => {
         const Milotic = Pokemon('Milotic', {
           item: 'Flame Orb',
           nature: 'Bold',
-          ability: 'Marvel Scale',
+          ability: 'Écaille Spéciale',
           evs: {hp: 248, def: 184},
           status: 'brn',
           boosts: {spd: 1},
@@ -441,9 +441,9 @@ describe('calc', () => {
           '100 Atk Gengar Focus Punch vs. 252 HP / 252+ Def Chansey: 346-408 (49.1 - 57.9%) -- 59% chance to 2HKO after Leftovers recovery'
         );
       });
-      test('Water Absorb', () => {
+      test('Absorbe-Eau', () => {
         const cacturne = Pokemon('Cacturne', {
-          ability: 'Sand Veil',
+          ability: 'Voile Sable',
         });
         const blastoise = Pokemon('Blastoise', {
           evs: {spa: 252},
@@ -456,7 +456,7 @@ describe('calc', () => {
           '252 SpA Blastoise Surf vs. 0 HP / 0 SpD Cacturne: 88-104 (31.3 - 37%) -- 76.6% chance to 3HKO'
         );
 
-        cacturne.ability = 'Water Absorb' as AbilityName;
+        cacturne.ability = 'Absorbe-Eau' as AbilityName;
         result = calculate(blastoise, cacturne, surf);
         expect(result.damage).toBe(0);
       });
@@ -516,7 +516,7 @@ describe('calc', () => {
           '+1 252 SpA Choice Specs Gengar Focus Blast vs. 252 HP / 252+ SpD Chansey: 408-482 (57.9 - 68.4%) -- guaranteed 2HKO after Leftovers recovery'
         );
       });
-      test('Mold Breaker', () => {
+      test('Brise Moule', () => {
         const pinsir = Pokemon('Pinsir', {
           item: 'Choice Band',
           nature: 'Adamant',
@@ -534,7 +534,7 @@ describe('calc', () => {
         let result = calculate(pinsir, gengar, earthquake);
         expect(result.damage).toBe(0);
 
-        pinsir.ability = 'Mold Breaker' as AbilityName;
+        pinsir.ability = 'Brise Moule' as AbilityName;
         result = calculate(pinsir, gengar, earthquake);
         expect(result.range()).toEqual([528, 622]);
         expect(result.desc()).toBe(
@@ -542,7 +542,7 @@ describe('calc', () => {
         );
 
         pinsir.boosts.atk = 2;
-        gengar.ability = 'Unaware' as AbilityName;
+        gengar.ability = 'Inconscient' as AbilityName;
         result = calculate(pinsir, gengar, earthquake);
         expect(result.range()).toEqual([1054, 1240]);
       });
@@ -572,7 +572,7 @@ describe('calc', () => {
         );
       });
       test('Technician with Low Kick', () => {
-        const ambipom = Pokemon('Ambipom', {level: 50, ability: 'Technician'});
+        const ambipom = Pokemon('Ambipom', {level: 50, ability: 'Technicien'});
         const blissey = Pokemon('Blissey', {level: 50, evs: {hp: 252}});
         let result = calculate(ambipom, blissey, Move('Low Kick'));
         expect(result.range()).toEqual([272, 320]);
@@ -618,14 +618,14 @@ describe('calc', () => {
     inGen(7, ({calculate, Pokemon, Move, Field}) => {
       const abomasnow = Pokemon('Abomasnow', {
         item: 'Icy Rock',
-        ability: 'Snow Warning',
+        ability: 'Alerte Neige',
         nature: 'Hasty',
         evs: {atk: 252, spd: 4, spe: 252},
       });
 
       const hoopa = Pokemon('Hoopa-Unbound', {
         item: 'Choice Band',
-        ability: 'Magician',
+        ability: 'Magicien',
         nature: 'Jolly',
         evs: {hp: 32, atk: 224, spe: 252},
       });
@@ -707,7 +707,7 @@ describe('calc', () => {
       });
 
       test('Wring Out', () => {
-        const smeargle = Pokemon('Smeargle', {level: 50, ability: 'Technician'});
+        const smeargle = Pokemon('Smeargle', {level: 50, ability: 'Technicien'});
         const blissey = Pokemon('Blissey', {level: 50, evs: {hp: 252}, curHP: 184});
         const result = calculate(smeargle, blissey, Move('Wring Out'));
         expect(result.range()).toEqual([15, 18]);
@@ -716,7 +716,7 @@ describe('calc', () => {
         );
       });
 
-      test('Mold Breaker', () => {
+      test('Brise Moule', () => {
         const pinsir = Pokemon('Pinsir', {
           item: 'Choice Band',
           nature: 'Adamant',
@@ -726,7 +726,7 @@ describe('calc', () => {
         const gengar = Pokemon('Gengar', {
           item: 'Choice Specs',
           nature: 'Timid',
-          ability: 'Levitate',
+          ability: 'Lévitation',
           evs: {spa: 252},
           boosts: {spa: 1},
         });
@@ -735,7 +735,7 @@ describe('calc', () => {
         let result = calculate(pinsir, gengar, earthquake);
         expect(result.damage).toBe(0);
 
-        pinsir.ability = 'Mold Breaker' as AbilityName;
+        pinsir.ability = 'Brise Moule' as AbilityName;
         result = calculate(pinsir, gengar, earthquake);
         expect(result.range()).toEqual([528, 622]);
         expect(result.desc()).toBe(
@@ -743,7 +743,7 @@ describe('calc', () => {
         );
 
         pinsir.boosts.atk = 2;
-        gengar.ability = 'Unaware' as AbilityName;
+        gengar.ability = 'Inconscient' as AbilityName;
         result = calculate(pinsir, gengar, earthquake);
         expect(result.range()).toEqual([1054, 1240]);
       });
@@ -765,7 +765,7 @@ describe('calc', () => {
 
       test('32-bit Overflow', () => {
         let kyogre = Pokemon('Kyogre', {
-          ability: 'Water Bubble',
+          ability: 'Aquabulle',
           item: 'Choice Specs',
           curHP: 340, // we need 149 base power Water Spout
           ivs: {spa: 6}, // we need 311 Spa
@@ -808,7 +808,7 @@ describe('calc', () => {
       });
 
       test('Knock Off vs. Silvally', () => {
-        const sawk = Pokemon('Sawk', {ability: 'Mold Breaker', evs: {atk: 252}});
+        const sawk = Pokemon('Sawk', {ability: 'Brise Moule', evs: {atk: 252}});
         const silvally = Pokemon('Silvally-Dark', {item: 'Dark Memory'});
         const knockoff = Move('Knock Off');
         const result = calculate(sawk, silvally, knockoff);
@@ -818,7 +818,7 @@ describe('calc', () => {
       });
 
       test('-ate Abilities', () => {
-        const sylveon = Pokemon('Sylveon', {ability: 'Pixilate', evs: {spa: 252}});
+        const sylveon = Pokemon('Sylveon', {ability: 'Peau Féérique', evs: {spa: 252}});
         const silvally = Pokemon('Silvally');
         const hypervoice = Move('Hyper Voice');
         const result = calculate(sylveon, silvally, hypervoice);
@@ -857,7 +857,7 @@ describe('calc', () => {
       });
 
       test('Technician with Low Kick', () => {
-        const ambipom = Pokemon('Ambipom', {level: 50, ability: 'Technician'});
+        const ambipom = Pokemon('Ambipom', {level: 50, ability: 'Technicien'});
         const blissey = Pokemon('Blissey', {level: 50, evs: {hp: 252}});
         let result = calculate(ambipom, blissey, Move('Low Kick'));
         expect(result.range()).toEqual([272, 320]);
@@ -876,8 +876,8 @@ describe('calc', () => {
 
     describe('Gen 9', () => {
       inGen(9, ({calculate, Pokemon, Move}) => {
-        test('Supreme Overlord', () => {
-          const kingambit = Pokemon('Kingambit', {level: 100, ability: 'Supreme Overlord', alliesFainted: 0});
+        test('Général Suprême', () => {
+          const kingambit = Pokemon('Kingambit', {level: 100, ability: 'Général Suprême', alliesFainted: 0});
           const aggron = Pokemon('Aggron', {level: 100});
           let result = calculate(kingambit, aggron, Move('Iron Head'));
           expect(result.range()).toEqual([67, 79]);
