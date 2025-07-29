@@ -142,7 +142,7 @@ function getZMoveName(moveName, moveType, item) {
     if (moveName === 'Rayon Spectral' && item === 'Lunalium Z')
         return 'Rayons Séléno-Explosifs';
     if (moveName === 'Photo-Geyser' && item === 'Ultranecrozium Z') {
-        return 'Lumière du Néant';
+        return 'Apocalypsis Luminis';
     }
     if (moveName === 'Câlinerie' && item === 'Mimikium Z')
         return 'Let\'s Snuggle Forever';

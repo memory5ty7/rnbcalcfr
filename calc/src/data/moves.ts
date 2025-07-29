@@ -2028,7 +2028,7 @@ const SM_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   'Poing Karaté': {zp: 100},
   'Sabotage': {zp: 120},
   'Land\'s Wrath': {zp: 185},
-  'Lumière du Néant': {zp: 200},
+  'Apocalypsis Luminis': {zp: 200},
   'Balayage': {zp: 160},
   'Lumi-Éclat': {zp: 140},
   'Vortex Magma': {zp: 180},

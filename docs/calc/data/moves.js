@@ -2015,7 +2015,7 @@ var SM_PATCH = {
     'Poing Karaté': { zp: 100 },
     'Sabotage': { zp: 120 },
     'Land\'s Wrath': { zp: 185 },
-    'Lumière du Néant': { zp: 200 },
+    'Apocalypsis Luminis': { zp: 200 },
     'Balayage': { zp: 160 },
     'Lumi-Éclat': { zp: 140 },
     'Vortex Magma': { zp: 180 },
@@ -2484,7 +2484,7 @@ var SM_PATCH = {
         category: 'Physical',
         isZ: true
     },
-    'Lumière du Néant': {
+    'Apocalypsis Luminis': {
         bp: 200,
         type: 'Psychic',
         category: 'Special',
@@ -3877,7 +3877,7 @@ var SS_PATCH = {
     'Let\'s Snuggle Forever': { maxPower: 1 },
     Léchouille: { maxPower: 90 },
     'Lumière du Néant': { maxPower: 140 },
-    'Lumière du Néant': { maxPower: 1 },
+    'Apocalypsis Luminis': { maxPower: 1 },
     'Aqua-Brèche': { maxPower: 130 },
     'Balayage': { maxPower: 100 },
     'Balayette': { maxPower: 85 },

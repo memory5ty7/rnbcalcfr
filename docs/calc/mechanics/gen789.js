@@ -49,7 +49,7 @@ function calculateSMSSSV(gen, attacker, defender, move, field) {
     }
     var defenderIgnoresAbility = defender.hasAbility('Métallo-Garde', 'Gaz Inhibiteur', 'Prisme-Armure', 'Spectro-Bouclier');
     var attackerIgnoresAbility = attacker.hasAbility('Brise Moule', 'Téra-Voltage', 'Turbo Brasier');
-    var moveIgnoresAbility = move.named('Percussion G-Max', 'G-Max Fire Ball', 'Gâchette G-Max', 'Lumière du Néant', 'Rayons Séléno-Explosifs', 'Rayon Spectral', 'Photo-Geyser', 'Hélio-Choc Dévastateur', 'Choc Météore');
+    var moveIgnoresAbility = move.named('Percussion G-Max', 'G-Max Fire Ball', 'Gâchette G-Max', 'Apocalypsis Luminis', 'Rayons Séléno-Explosifs', 'Rayon Spectral', 'Photo-Geyser', 'Hélio-Choc Dévastateur', 'Choc Météore');
     if (!defenderIgnoresAbility && !defender.hasAbility('Soin Poison')) {
         if (attackerIgnoresAbility) {
             defender.ability = '';

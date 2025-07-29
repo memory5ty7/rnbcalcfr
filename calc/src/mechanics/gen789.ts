@@ -115,7 +115,7 @@ export function calculateSMSSSV(
     'Percussion G-Max',
     'G-Max Fire Ball',
     'Gâchette G-Max',
-    'Lumière du Néant',
+    'Apocalypsis Luminis',
     'Rayons Séléno-Explosifs',
     'Rayon Spectral',
     'Photo-Geyser',
