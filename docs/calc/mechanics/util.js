@@ -139,7 +139,7 @@ function getFinalSpeed(gen, pokemon, field, side) {
         (pokemon.hasAbility('Chlorophylle') && weather.includes('Sun')) ||
         (pokemon.hasAbility('Baigne Sable') && weather === 'Sand') ||
         (pokemon.hasAbility('Glissade') && weather.includes('Rain')) ||
-        (pokemon.hasAbility('Chasse-Neige') && ['Hail', 'Snow'].includes(weather)) ||
+        (pokemon.hasAbility('Chasse-Neige') && ['Grêle', 'Snow'].includes(weather)) ||
         (pokemon.hasAbility('Surf Caudal') && terrain === 'Electric')) {
         speedMods.push(8192);
     }
@@ -180,7 +180,7 @@ function getMoveEffectiveness(gen, move, type, isGhostRevealed, isGravity, isRin
     else if ((isRingTarget || isGravity) && type === 'Flying' && move.hasType('Ground')) {
         return 1;
     }
-    else if (move.named('Freeze-Dry') && type === 'Water') {
+    else if (move.named('Lyophilisation') && type === 'Water') {
         return 2;
     }
     else if (move.named('Flying Press')) {
@@ -209,7 +209,7 @@ function checkForecast(pokemon, weather) {
             case 'Heavy Rain':
                 pokemon.types = ['Water'];
                 break;
-            case 'Hail':
+            case 'Grêle':
             case 'Snow':
                 pokemon.types = ['Ice'];
                 break;
@@ -311,7 +311,7 @@ function checkSeedBoost(pokemon, field) {
 exports.checkSeedBoost = checkSeedBoost;
 function checkMultihitBoost(gen, attacker, defender, move, field, desc, usedWhiteHerb) {
     if (usedWhiteHerb === void 0) { usedWhiteHerb = false; }
-    if (move.named('Gyro Ball', 'Electro Ball') && defender.hasAbility('Poisseux', 'Mèche Rebelle')) {
+    if (move.named('Gyroballe', 'Boule Élek') && defender.hasAbility('Poisseux', 'Mèche Rebelle')) {
         if (attacker.hasItem('White Herb') && !usedWhiteHerb) {
             desc.attackerItem = attacker.item;
             usedWhiteHerb = true;
@@ -322,7 +322,7 @@ function checkMultihitBoost(gen, attacker, defender, move, field, desc, usedWhit
             desc.defenderAbility = defender.ability;
         }
     }
-    else if (move.named('Power-Up Punch')) {
+    else if (move.named('Poing Boost')) {
         attacker.boosts.atk = Math.min(attacker.boosts.atk + 1, 6);
         attacker.stats.atk = getModifiedStat(attacker.rawStats.atk, attacker.boosts.atk, gen);
     }
@@ -488,16 +488,16 @@ function getEVDescriptionText(gen, pokemon, stat, natureName) {
 }
 exports.getEVDescriptionText = getEVDescriptionText;
 function handleFixedDamageMoves(attacker, move, defender) {
-    if (move.named('Seismic Toss', 'Night Shade')) {
+    if (move.named('Frappe Atlas', 'Ombre Nocturne')) {
         return attacker.level;
     }
-    else if (move.named('Dragon Rage')) {
+    else if (move.named('Draco-Rage')) {
         return 40;
     }
     else if (move.named('Sonic Boom')) {
         return 20;
     }
-    else if (move.named('Super Fang')) {
+    else if (move.named('Croc Fatal')) {
         return Math.floor(defender.originalCurHP / 2) > 0 ? Math.floor(defender.originalCurHP / 2) : 1;
     }
     return 0;

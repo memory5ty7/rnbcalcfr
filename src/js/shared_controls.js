@@ -367,7 +367,7 @@ $(".move-selector").change(function () {
 	var moveName = $(this).val();
 	var move = moves[moveName] || moves['(No Move)'];
 	var moveGroupObj = $(this).parent();
-	moveGroupObj.children(".move-bp").val(moveName === 'Present' ? 40 : move.bp);
+	moveGroupObj.children(".move-bp").val(moveName === 'Cadeau' ? 40 : move.bp);
 	var m = moveName.match(HIDDEN_POWER_REGEX);
 	if (m) {
 		var pokeObj = $(this).closest(".poke-info");

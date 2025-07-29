@@ -41,7 +41,7 @@ export function getItemBoostType(item: string | undefined) {
   case 'Mind Plate':
   case 'Odd Incense':
   case 'Twisted Spoon':
-    return 'Psychic';
+    return 'Psyko';
   case 'Pixie Plate':
     return 'Fairy';
   case 'Sky Plate':
@@ -97,7 +97,7 @@ export function getBerryResistType(berry: string | undefined) {
   case 'Coba Berry':
     return 'Flying';
   case 'Payapa Berry':
-    return 'Psychic';
+    return 'Psyko';
   case 'Tanga Berry':
     return 'Bug';
   case 'Charti Berry':

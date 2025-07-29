@@ -103,7 +103,7 @@ export function getFinalSpeed(gen: Generation, pokemon: Pokemon, field: Field, s
       (pokemon.hasAbility('Chlorophylle') && weather.includes('Sun')) ||
       (pokemon.hasAbility('Baigne Sable') && weather === 'Sand') ||
       (pokemon.hasAbility('Glissade') && weather.includes('Rain')) ||
-      (pokemon.hasAbility('Chasse-Neige') && ['Hail', 'Snow'].includes(weather)) ||
+      (pokemon.hasAbility('Chasse-Neige') && ['Grêle', 'Snow'].includes(weather)) ||
       (pokemon.hasAbility('Surf Caudal') && terrain === 'Electric')
   ) {
     speedMods.push(8192);
@@ -150,7 +150,7 @@ export function getMoveEffectiveness(
     return 1;
   } else if ((isRingTarget || isGravity) && type === 'Flying' && move.hasType('Ground')) {
     return 1;
-  } else if (move.named('Freeze-Dry') && type === 'Water') {
+  } else if (move.named('Lyophilisation') && type === 'Water') {
     return 2;
   } else if (move.named('Flying Press')) {
     return (
@@ -179,7 +179,7 @@ export function checkForecast(pokemon: Pokemon, weather?: Weather) {
     case 'Heavy Rain':
       pokemon.types = ['Water'];
       break;
-    case 'Hail':
+    case 'Grêle':
     case 'Snow':
       pokemon.types = ['Ice'];
       break;
@@ -287,7 +287,7 @@ export function checkMultihitBoost(
   usedWhiteHerb = false
 ) {
   // NOTE: attacker.ability must be Parental Bond for these moves to be multi-hit
-  if (move.named('Gyro Ball', 'Electro Ball') && defender.hasAbility('Poisseux', 'Mèche Rebelle')) {
+  if (move.named('Gyroballe', 'Boule Élek') && defender.hasAbility('Poisseux', 'Mèche Rebelle')) {
     // Gyro Ball (etc) makes contact into Gooey (etc) whenever its inflicting multiple hits because
     // this can only happen if the attacker ability is Parental Bond (and thus can't be Long Reach)
     if (attacker.hasItem('White Herb') && !usedWhiteHerb) {
@@ -300,7 +300,7 @@ export function checkMultihitBoost(
     }
     // BUG: Technically Sitrus/Figy Berry + Unburden can also affect the defender's speed, but
     // this goes far beyond what we care to implement (especially once Gluttony is considered) now
-  } else if (move.named('Power-Up Punch')) {
+  } else if (move.named('Poing Boost')) {
     attacker.boosts.atk = Math.min(attacker.boosts.atk + 1, 6);
     attacker.stats.atk = getModifiedStat(attacker.rawStats.atk, attacker.boosts.atk, gen);
   }
@@ -485,13 +485,13 @@ export function getEVDescriptionText(
 }
 
 export function handleFixedDamageMoves(attacker: Pokemon, move: Move, defender: Pokemon) {
-  if (move.named('Seismic Toss', 'Night Shade')) {
+  if (move.named('Frappe Atlas', 'Ombre Nocturne')) {
     return attacker.level;
-  } else if (move.named('Dragon Rage')) {
+  } else if (move.named('Draco-Rage')) {
     return 40;
   } else if (move.named('Sonic Boom')) {
     return 20;
-  } else if (move.named('Super Fang')){
+  } else if (move.named('Croc Fatal')){
     return Math.floor(defender.originalCurHP / 2) > 0 ? Math.floor(defender.originalCurHP / 2) : 1;
   }
   return 0;

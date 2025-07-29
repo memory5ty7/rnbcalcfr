@@ -66,12 +66,12 @@ export function calculateRBYGSC(
   }
 
   // Flail and Reversal are variable BP and never crit
-  if (move.named('Flail', 'Reversal')) {
+  if (move.named('Gigotage', 'Contre')) {
     move.isCrit = false;
     const p = Math.floor((48 * attacker.curHP()) / attacker.maxHP());
     move.bp = p <= 1 ? 200 : p <= 4 ? 150 : p <= 9 ? 100 : p <= 16 ? 80 : p <= 32 ? 40 : 20;
     desc.moveBP = move.bp;
-  } else if (move.named('Present') && !move.bp) {
+  } else if (move.named('Cadeau') && !move.bp) {
     // Present is technically 0 BP so we default to 40 in that case, but the UI may override the
     // base power in order to simulate the scenarios where it is 80 or 120 BP.
     move.bp = 40;
@@ -110,7 +110,7 @@ export function calculateRBYGSC(
     }
   }
 
-  if (move.named('Explosion', 'Self-Destruct')) {
+  if (move.named('Explosion', 'Destruction')) {
     df = Math.floor(df / 2);
   }
 
@@ -137,7 +137,7 @@ export function calculateRBYGSC(
 
   // Gen 2 Present has a glitched damage calculation using the secondary types of the Pokemon
   // for the Attacker's Level and Defender's Defense.
-  if (move.named('Present')) {
+  if (move.named('Cadeau')) {
     const lookup: {[id: string]: number} = {
       Normal: 0, Fighting: 1, Flying: 2, Poison: 3, Ground: 4, Rock: 5, Bug: 7,
       Ghost: 8, Steel: 9, '???': 19, Fire: 20, Water: 21, Grass: 22, Electric: 23,
@@ -164,7 +164,7 @@ export function calculateRBYGSC(
     desc.isCritical = true;
   }
 
-  if (move.named('Pursuit') && field.defenderSide.isSwitching === 'out') {
+  if (move.named('Poursuite') && field.defenderSide.isSwitching === 'out') {
     baseDamage = Math.floor(baseDamage * 2);
     desc.isSwitching = 'out';
   }
@@ -188,7 +188,7 @@ export function calculateRBYGSC(
     desc.weather = field.weather;
   } else if (
     (field.hasWeather('Sun') && move.hasType('Water')) ||
-    (field.hasWeather('Rain') && (move.hasType('Fire') || move.named('Solar Beam')))
+    (field.hasWeather('Rain') && (move.hasType('Fire') || move.named('Lance-Soleil')))
   ) {
     baseDamage = Math.floor(baseDamage / 2);
     desc.weather = field.weather;

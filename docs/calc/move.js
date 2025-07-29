@@ -2,7 +2,7 @@
 exports.__esModule = true;
 
 var util_1 = require("./util");
-var SPECIAL = ['Fire', 'Water', 'Grass', 'Electric', 'Ice', 'Psychic', 'Dark', 'Dragon'];
+var SPECIAL = ['Fire', 'Water', 'Grass', 'Electric', 'Ice', 'Psyko', 'Dark', 'Dragon'];
 var Move = (function () {
     function Move(gen, name, options) {
         if (options === void 0) { options = {}; }
@@ -15,10 +15,10 @@ var Move = (function () {
             var maxMoveName_1 = getMaxMoveName(data.type, options.species, !!(data.category === 'Status'), options.ability);
             var maxMove_1 = gen.moves.get((0, util_1.toID)(maxMoveName_1));
             var maxPower = function () {
-                if (['G-Max Drum Solo', 'G-Max Fire Ball', 'G-Max Hydrosnipe'].includes(maxMoveName_1)) {
+                if (['Percussion G-Max', 'G-Max Fire Ball', 'Gâchette G-Max'].includes(maxMoveName_1)) {
                     return 160;
                 }
-                if (maxMove_1.basePower === 10 || maxMoveName_1 === 'Max Flare') {
+                if (maxMove_1.basePower === 10 || maxMoveName_1 === 'Pyromax') {
                     return data.maxMove.basePower;
                 }
                 return maxMove_1.basePower;
@@ -131,163 +131,163 @@ var Move = (function () {
 exports.Move = Move;
 function getZMoveName(moveName, moveType, item) {
     item = item || '';
-    if (moveName.includes('Hidden Power'))
-        return 'Breakneck Blitz';
-    if (moveName === 'Clanging Scales' && item === 'Kommonium Z')
-        return 'Clangorous Soulblaze';
-    if (moveName === 'Darkest Lariat' && item === 'Incinium Z')
-        return 'Malicious Moonsault';
+    if (moveName.includes('Puissance Cachée'))
+        return 'Turbo-Charge Bulldozer';
+    if (moveName === 'Vibrécaille' && item === 'Kommonium Z')
+        return 'Dracacophonie Flamboyante';
+    if (moveName === 'Dark Lariat' && item === 'Incinium Z')
+        return 'Dark Body Press';
     if (moveName === 'Giga Impact' && item === 'Snorlium Z')
-        return 'Pulverizing Pancake';
-    if (moveName === 'Moongeist Beam' && item === 'Lunalium Z')
-        return 'Menacing Moonraze Maelstrom';
-    if (moveName === 'Photon Geyser' && item === 'Ultranecrozium Z') {
-        return 'Light That Burns the Sky';
+        return 'Gare au Ronflex';
+    if (moveName === 'Rayon Spectral' && item === 'Lunalium Z')
+        return 'Rayons Séléno-Explosifs';
+    if (moveName === 'Photo-Geyser' && item === 'Ultranecrozium Z') {
+        return 'Lumière du Néant';
     }
-    if (moveName === 'Play Rough' && item === 'Mimikium Z')
+    if (moveName === 'Câlinerie' && item === 'Mimikium Z')
         return 'Let\'s Snuggle Forever';
-    if (moveName === 'Psychic' && item === 'Mewnium Z')
-        return 'Genesis Supernova';
-    if (moveName === 'Sparkling Aria' && item === 'Primarium Z')
-        return 'Oceanic Operetta';
-    if (moveName === 'Spectral Thief' && item === 'Marshadium Z') {
-        return 'Soul-Stealing 7-Star Strike';
+    if (moveName === 'Psyko' && item === 'Mewnium Z')
+        return 'Supernova Originelle';
+    if (moveName === 'Aria de l\'Écume' && item === 'Primarium Z')
+        return 'Symphonie des Ondines';
+    if (moveName === 'Clepto-Mânes' && item === 'Marshadium Z') {
+        return 'Fauche-Âme des Sept Étoiles';
     }
-    if (moveName === 'Spirit Shackle' && item === 'Decidium Z')
-        return 'Sinister Arrow Raid';
-    if (moveName === 'Stone Edge' && item === 'Lycanium Z')
-        return 'Splintered Stormshards';
-    if (moveName === 'Sunsteel Strike' && item === 'Solganium Z')
-        return 'Searing Sunraze Smash';
-    if (moveName === 'Volt Tackle' && item === 'Pikanium Z')
-        return 'Catastropika';
+    if (moveName === 'Tisse Ombre' && item === 'Decidium Z')
+        return 'Fureur des Plumes Spectrales';
+    if (moveName === 'Lame de Roc' && item === 'Lycanium Z')
+        return 'Hurlement des Roches-Lames';
+    if (moveName === 'Choc Météore' && item === 'Solganium Z')
+        return 'Hélio-Choc Dévastateur';
+    if (moveName === 'Électacle' && item === 'Pikanium Z')
+        return 'Pikachute Foudroyante';
     if (moveName === 'Nature\'s Madness' && item === 'Tapunium Z')
-        return 'Guardian of Alola';
-    if (moveName === 'Thunderbolt') {
+        return 'Colère du Gardien d\'Alola';
+    if (moveName === 'Tonnerre') {
         if (item === 'Aloraichium Z')
-            return 'Stoked Sparksurfer';
+            return 'Électro-Surf Survolté';
         if (item === 'Pikashunium Z')
-            return '10,000,000 Volt Thunderbolt';
+            return 'Giga-Tonnerre';
     }
     return ZMOVES_TYPING[moveType];
 }
 exports.getZMoveName = getZMoveName;
 var ZMOVES_TYPING = {
-    Bug: 'Savage Spin-Out',
-    Dark: 'Black Hole Eclipse',
-    Dragon: 'Devastating Drake',
-    Electric: 'Gigavolt Havoc',
-    Fairy: 'Twinkle Tackle',
-    Fighting: 'All-Out Pummeling',
-    Fire: 'Inferno Overdrive',
-    Flying: 'Supersonic Skystrike',
-    Ghost: 'Never-Ending Nightmare',
-    Grass: 'Bloom Doom',
-    Ground: 'Tectonic Rage',
-    Ice: 'Subzero Slammer',
-    Normal: 'Breakneck Blitz',
-    Poison: 'Acid Downpour',
-    Psychic: 'Shattered Psyche',
-    Rock: 'Continental Crush',
-    Steel: 'Corkscrew Crash',
-    Water: 'Hydro Vortex'
+    Bug: 'Cocon Fatal',
+    Dark: 'Trou Noir des Ombres',
+    Dragon: 'Chaos Draconique',
+    Electric: 'Fulguro-Lance Gigavolt',
+    Fairy: 'Impact Choupinova',
+    Fighting: 'Combo Hyper-Furie',
+    Fire: 'Pyro-Explosion Cataclysmique',
+    Flying: 'Piqué Supersonique',
+    Ghost: 'Appel des Ombres Éternelles',
+    Grass: 'Pétalexplosion Éblouissante',
+    Ground: 'Éruption Géo-Sismique',
+    Ice: 'Laser Cryogénique',
+    Normal: 'Turbo-Charge Bulldozer',
+    Poison: 'Déluge Causti-Toxique',
+    Psychic: 'Psycho-Pulvérisation EX',
+    Rock: 'Apocalypse Gigalithique',
+    Steel: 'Vrille Maximum',
+    Water: 'Super Tourbillon Abyssal'
 };
 function getMaxMoveName(moveType, pokemonSpecies, isStatus, pokemonAbility) {
     if (isStatus)
-        return 'Max Guard';
+        return 'Gardomax';
     if (pokemonAbility === 'Normalise')
-        return 'Max Strike';
+        return 'Normalomax';
     if (moveType === 'Fire') {
         if (pokemonSpecies === 'Charizard-Gmax')
-            return 'G-Max Wildfire';
+            return 'Téphra G-Max';
         if (pokemonSpecies === 'Centiskorch-Gmax')
-            return 'G-Max Centiferno';
+            return 'Combustion G-Max';
         if (pokemonSpecies === 'Cinderace-Gmax')
             return 'G-Max Fire Ball';
     }
     if (moveType === 'Normal') {
         if (pokemonSpecies === 'Eevee-Gmax')
-            return 'G-Max Cuddle';
+            return 'Câlin G-Max';
         if (pokemonSpecies === 'Meowth-Gmax')
-            return 'G-Max Gold Rush';
+            return 'Pactole G-Max';
         if (pokemonSpecies === 'Snorlax-Gmax')
-            return 'G-Max Replenish';
+            return 'Récolte G-Max';
         if (pokemonAbility === 'Peau Féérique')
-            return 'Max Starfall';
+            return 'Enchantomax';
         if (pokemonAbility === 'Peau Céleste')
-            return 'Max Airstream';
+            return 'Aéromax';
         if (pokemonAbility === 'Peau Gelée')
-            return 'Max Hailstorm';
+            return 'Cryomax';
         if (pokemonAbility === 'Peau Électrique')
-            return 'Max Lightning';
+            return 'Fulguromax';
     }
     if (moveType === 'Fairy') {
         if (pokemonSpecies === 'Alcremie-Gmax')
-            return 'G-Max Finale';
+            return 'Cure G-Max';
         if (pokemonSpecies === 'Hatterene-Gmax')
-            return 'G-Max Smite';
+            return 'Sentence G-Max';
     }
     if (moveType === 'Steel') {
         if (pokemonSpecies === 'Copperajah-Gmax')
-            return 'G-Max Steelsurge';
+            return 'Percée G-Max';
         if (pokemonSpecies === 'Melmetal-Gmax')
-            return 'G-Max Meltdown';
+            return 'Fonte G-Max';
     }
     if (moveType === 'Electric') {
         if (pokemonSpecies === 'Pikachu-Gmax')
-            return 'G-Max Volt Crash';
+            return 'Foudre G-Max';
         if ((pokemonSpecies === null || pokemonSpecies === void 0 ? void 0 : pokemonSpecies.startsWith('Toxtricity')) &&
             (pokemonSpecies === null || pokemonSpecies === void 0 ? void 0 : pokemonSpecies.endsWith('Gmax')))
-            return 'G-Max Stun Shock';
+            return 'Choc G-Max';
     }
     if (moveType === 'Grass') {
         if (pokemonSpecies === 'Appletun-Gmax')
-            return 'G-Max Sweetness';
+            return 'Nectar G-Max';
         if (pokemonSpecies === 'Flapple-Gmax')
-            return 'G-Max Tartness';
+            return 'Corrosion G-Max';
         if (pokemonSpecies === 'Rillaboom-Gmax')
-            return 'G-Max Drum Solo';
+            return 'Percussion G-Max';
         if (pokemonSpecies === 'Venusaur-Gmax')
-            return 'G-Max Vine Lash';
+            return 'Fouet G-Max';
     }
     if (moveType === 'Water') {
         if (pokemonSpecies === 'Blastoise-Gmax')
-            return 'G-Max Cannonade';
+            return 'Canonnade G-Max';
         if (pokemonSpecies === 'Drednaw-Gmax')
-            return 'G-Max Stonesurge';
+            return 'Récif G-Max';
         if (pokemonSpecies === 'Inteleon-Gmax')
-            return 'G-Max Hydrosnipe';
+            return 'Gâchette G-Max';
         if (pokemonSpecies === 'Kingler-Gmax')
-            return 'G-Max Foam Burst';
+            return 'Bulles G-Max';
         if (pokemonSpecies === 'Urshifu-Rapid-Strike-Gmax')
-            return 'G-Max Rapid Flow';
+            return 'Multicoup G-Max';
     }
     if (moveType === 'Dark') {
         if (pokemonSpecies === 'Grimmsnarl-Gmax')
-            return 'G-Max Snooze';
+            return 'Torpeur G-Max';
         if (pokemonSpecies === 'Urshifu-Gmax')
-            return 'G-Max One Blow';
+            return 'Coup Final G-Max';
     }
     if (moveType === 'Poison' && pokemonSpecies === 'Garbodor-Gmax')
-        return 'G-Max Malodor';
+        return 'Pestilence G-Max';
     if (moveType === 'Fighting' && pokemonSpecies === 'Machamp-Gmax')
-        return 'G-Max Chi Strike';
+        return 'Frappe G-Max';
     if (moveType === 'Ghost' && pokemonSpecies === 'Gengar-Gmax')
-        return 'G-Max Terror';
+        return 'Hantise G-Max';
     if (moveType === 'Ice' && pokemonSpecies === 'Lapras-Gmax')
-        return 'G-Max Resonance';
+        return 'Résonance G-Max';
     if (moveType === 'Flying' && pokemonSpecies === 'Corviknight-Gmax')
-        return 'G-Max Wind Rage';
+        return 'Rafale G-Max';
     if (moveType === 'Dragon' && pokemonSpecies === 'Duraludon-Gmax')
-        return 'G-Max Depletion';
-    if (moveType === 'Psychic' && pokemonSpecies === 'Orbeetle-Gmax')
-        return 'G-Max Gravitas';
+        return 'Usure G-Max';
+    if (moveType === 'Psyko' && pokemonSpecies === 'Orbeetle-Gmax')
+        return 'Ondes G-Max';
     if (moveType === 'Rock' && pokemonSpecies === 'Coalossal-Gmax')
-        return 'G-Max Volcalith';
+        return 'Fournaise G-Max';
     if (moveType === 'Ground' && pokemonSpecies === 'Sandaconda-Gmax')
-        return 'G-Max Sandblast';
+        return 'Enlisement G-Max';
     if (moveType === 'Dark' && pokemonSpecies === 'Grimmsnarl-Gmax')
-        return 'G-Max Snooze';
+        return 'Torpeur G-Max';
     return 'Max ' + MAXMOVES_TYPING[moveType];
 }
 exports.getMaxMoveName = getMaxMoveName;

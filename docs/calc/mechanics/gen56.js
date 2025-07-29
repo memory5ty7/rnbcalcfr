@@ -32,7 +32,7 @@ function calculateBWXY(gen, attacker, defender, move, field) {
         isWonderRoom: field.isWonderRoom
     };
     var result = new result_1.Result(gen, attacker, defender, move, field, 0, desc);
-    if (move.category === 'Status' && !move.named('Nature Power')) {
+    if (move.category === 'Status' && !move.named('Force Nature')) {
         return result;
     }
     if (field.defenderSide.isProtected && !move.breaksProtect) {
@@ -44,23 +44,23 @@ function calculateBWXY(gen, attacker, defender, move, field) {
         desc.attackerAbility = attacker.ability;
     }
     var isCritical = move.isCrit && !defender.hasAbility('Armurbaston', 'Coque Armure') && move.timesUsed === 1;
-    if (move.named('Weather Ball')) {
+    if (move.named('Ball\'Météo')) {
         move.type =
             field.hasWeather('Sun', 'Harsh Sunshine') ? 'Fire'
                 : field.hasWeather('Rain', 'Heavy Rain') ? 'Water'
                     : field.hasWeather('Sand') ? 'Rock'
-                        : field.hasWeather('Hail') ? 'Ice'
+                        : field.hasWeather('Grêle') ? 'Ice'
                             : 'Normal';
         desc.weather = field.weather;
         desc.moveType = move.type;
     }
-    else if (move.named('Judgment') && attacker.item && attacker.item.includes('Plate')) {
+    else if (move.named('Jugement') && attacker.item && attacker.item.includes('Plate')) {
         move.type = (0, items_1.getItemBoostType)(attacker.item);
     }
-    else if (move.named('Techno Blast') && attacker.item && attacker.item.includes('Drive')) {
+    else if (move.named('Techno-Buster') && attacker.item && attacker.item.includes('Drive')) {
         move.type = (0, items_1.getTechnoBlast)(attacker.item);
     }
-    else if (move.named('Natural Gift') && attacker.item && attacker.item.includes('Berry')) {
+    else if (move.named('Don Naturel') && attacker.item && attacker.item.includes('Berry')) {
         var gift = (0, items_1.getNaturalGift)(gen, attacker.item);
         move.type = gift.t;
         move.bp = gift.p;
@@ -68,7 +68,7 @@ function calculateBWXY(gen, attacker, defender, move, field) {
         desc.moveBP = move.bp;
         desc.moveType = move.type;
     }
-    else if (move.named('Nature Power')) {
+    else if (move.named('Force Nature')) {
         if (gen.num === 5) {
             move.type = 'Ground';
         }
@@ -84,7 +84,7 @@ function calculateBWXY(gen, attacker, defender, move, field) {
     var isPixilate = false;
     var isRefrigerate = false;
     var isNormalize = false;
-    var noTypeChange = move.named('Judgment', 'Nature Power', 'Techo Blast', 'Natural Gift', 'Weather Ball');
+    var noTypeChange = move.named('Jugement', 'Force Nature', 'Techo Blast', 'Don Naturel', 'Ball\'Météo');
     if (!move.isZ && !noTypeChange) {
         var normal = move.hasType('Normal');
         if ((isAerilate = attacker.hasAbility('Peau Céleste') && normal)) {
@@ -123,7 +123,7 @@ function calculateBWXY(gen, attacker, defender, move, field) {
         var item = gen.items.get((0, util_1.toID)(defender.item));
         resistedKnockOffDamage = !!(item.megaEvolves && defender.name.includes(item.megaEvolves));
     }
-    if (typeEffectiveness === 0 && move.named('Thousand Arrows')) {
+    if (typeEffectiveness === 0 && move.named('Myria-Flèches')) {
         typeEffectiveness = 1;
     }
     else if (typeEffectiveness === 0 && move.hasType('Ground') &&
@@ -142,11 +142,11 @@ function calculateBWXY(gen, attacker, defender, move, field) {
     if (typeEffectiveness === 0) {
         return result;
     }
-    if ((move.named('Sky Drop') &&
+    if ((move.named('Chute Libre') &&
         (defender.hasType('Flying') || defender.weightkg >= 200 || field.isGravity)) ||
-        (move.named('Synchronoise') && !defender.hasType(attacker.types[0]) &&
+        (move.named('Synchropeine') && !defender.hasType(attacker.types[0]) &&
             (!attacker.types[1] || !defender.hasType(attacker.types[1]))) ||
-        (move.named('Dream Eater') && !defender.hasStatus('slp'))) {
+        (move.named('Dévorêve') && !defender.hasStatus('slp'))) {
         return result;
     }
     if ((field.hasWeather('Harsh Sunshine') && move.hasType('Water')) ||
@@ -166,19 +166,19 @@ function calculateBWXY(gen, attacker, defender, move, field) {
         (move.hasType('Electric') &&
             defender.hasAbility('Paratonnerre', 'Motorisé', 'Absorbe-Volt')) ||
         (move.hasType('Ground') &&
-            !field.isGravity && !move.named('Thousand Arrows') &&
+            !field.isGravity && !move.named('Myria-Flèches') &&
             !defender.hasItem('Iron Ball') && defender.hasAbility('Lévitation')) ||
         (move.flags.bullet && defender.hasAbility('Pare-Balles')) ||
         (move.flags.sound && defender.hasAbility('Anti-Bruit'))) {
         desc.defenderAbility = defender.ability;
         return result;
     }
-    if (move.hasType('Ground') && !move.named('Thousand Arrows') &&
+    if (move.hasType('Ground') && !move.named('Myria-Flèches') &&
         !field.isGravity && defender.hasItem('Air Balloon')) {
         desc.defenderItem = defender.item;
         return result;
     }
-    if (move.priority > 0 && field.hasTerrain('Psychic') && (0, util_2.isGrounded)(defender, field)) {
+    if (move.priority > 0 && field.hasTerrain('Psyko') && (0, util_2.isGrounded)(defender, field)) {
         desc.terrain = field.terrain;
         return result;
     }
@@ -194,7 +194,7 @@ function calculateBWXY(gen, attacker, defender, move, field) {
         }
         return result;
     }
-    if (move.named('Final Gambit')) {
+    if (move.named('Tout ou Rien')) {
         result.damage = attacker.curHP();
         return result;
     }
@@ -204,97 +204,97 @@ function calculateBWXY(gen, attacker, defender, move, field) {
     var turnOrder = attacker.stats.spe > defender.stats.spe ? 'first' : 'last';
     var basePower;
     switch (move.name) {
-        case 'Payback':
+        case 'Représailles':
             basePower = move.bp * (turnOrder === 'last' ? 2 : 1);
             desc.moveBP = basePower;
             break;
-        case 'Pursuit':
+        case 'Poursuite':
             var switching = field.defenderSide.isSwitching === 'out';
             basePower = move.bp * (switching ? 2 : 1);
             if (switching)
                 desc.isSwitching = 'out';
             desc.moveBP = basePower;
             break;
-        case 'Electro Ball':
+        case 'Boule Élek':
             if (defender.stats.spe === 0)
                 defender.stats.spe = 1;
             var r = Math.floor(attacker.stats.spe / defender.stats.spe);
             basePower = r >= 4 ? 150 : r >= 3 ? 120 : r >= 2 ? 80 : r >= 1 ? 60 : 40;
             desc.moveBP = basePower;
             break;
-        case 'Gyro Ball':
+        case 'Gyroballe':
             if (attacker.stats.spe === 0)
                 attacker.stats.spe = 1;
             basePower = Math.min(150, Math.floor((25 * defender.stats.spe) / attacker.stats.spe) + 1);
             desc.moveBP = basePower;
             break;
-        case 'Punishment':
+        case 'Punition':
             basePower = Math.min(200, 60 + 20 * (0, util_2.countBoosts)(gen, defender.boosts));
             desc.moveBP = basePower;
             break;
-        case 'Low Kick':
-        case 'Grass Knot':
+        case 'Balayage':
+        case 'Nœud Herbe':
             var w = defender.weightkg * (0, util_2.getWeightFactor)(defender);
             basePower = w >= 200 ? 120 : w >= 100 ? 100 : w >= 50 ? 80 : w >= 25 ? 60 : w >= 10 ? 40 : 20;
             desc.moveBP = basePower;
             break;
-        case 'Hex':
+        case 'Châtiment':
             basePower = move.bp * (defender.status ? 2 : 1);
             desc.moveBP = basePower;
             break;
-        case 'Heavy Slam':
-        case 'Heat Crash':
+        case 'Tacle Lourd':
+        case 'Tacle Feu':
             var wr = (attacker.weightkg * (0, util_2.getWeightFactor)(attacker)) /
                 (defender.weightkg * (0, util_2.getWeightFactor)(defender));
             basePower = wr >= 5 ? 120 : wr >= 4 ? 100 : wr >= 3 ? 80 : wr >= 2 ? 60 : 40;
             desc.moveBP = basePower;
             break;
-        case 'Stored Power':
-        case 'Power Trip':
+        case 'Force Ajoutée':
+        case 'Arrogance':
             basePower = 20 + 20 * (0, util_2.countBoosts)(gen, attacker.boosts);
             desc.moveBP = basePower;
             break;
-        case 'Acrobatics':
+        case 'Acrobatie':
             basePower = move.bp * (attacker.hasItem('Flying Gem') || !attacker.item ? 2 : 1);
             desc.moveBP = basePower;
             break;
         case 'Assurance':
             basePower = move.bp * (defender.hasAbility('Parental Bond (Child)') ? 2 : 1);
             break;
-        case 'Wake-Up Slap':
+        case 'Réveil Forcé':
             basePower = move.bp * (defender.hasStatus('slp') ? 2 : 1);
             desc.moveBP = basePower;
             break;
-        case 'Smelling Salts':
+        case 'Stimulant':
             basePower = move.bp * (defender.hasStatus('par') ? 2 : 1);
             desc.moveBP = basePower;
             break;
-        case 'Weather Ball':
+        case 'Ball\'Météo':
             basePower = move.bp * (field.weather && !field.hasWeather('Strong Winds') ? 2 : 1);
             desc.moveBP = basePower;
             break;
-        case 'Fling':
+        case 'Dégommage':
             basePower = (0, items_1.getFlingPower)(attacker.item);
             desc.moveBP = basePower;
             desc.attackerItem = attacker.item;
             break;
-        case 'Eruption':
-        case 'Water Spout':
+        case 'Éruption':
+        case 'Giclédo':
             basePower = Math.max(1, Math.floor((150 * attacker.curHP()) / attacker.maxHP()));
             desc.moveBP = basePower;
             break;
-        case 'Flail':
-        case 'Reversal':
+        case 'Gigotage':
+        case 'Contre':
             var p = Math.floor((48 * attacker.curHP()) / attacker.maxHP());
             basePower = p <= 1 ? 200 : p <= 4 ? 150 : p <= 9 ? 100 : p <= 16 ? 80 : p <= 32 ? 40 : 20;
             desc.moveBP = basePower;
             break;
-        case 'Nature Power':
+        case 'Force Nature':
             if (gen.num === 5) {
                 move.category = 'Physical';
                 move.target = 'allAdjacent';
                 basePower = 100;
-                desc.moveName = 'Earthquake';
+                desc.moveName = 'Séisme';
             }
             else {
                 move.category = 'Special';
@@ -302,28 +302,28 @@ function calculateBWXY(gen, attacker, defender, move, field) {
                 switch (field.terrain) {
                     case 'Electric':
                         basePower = 90;
-                        desc.moveName = 'Thunderbolt';
+                        desc.moveName = 'Tonnerre';
                         break;
                     case 'Grassy':
                         basePower = 90;
-                        desc.moveName = 'Energy Ball';
+                        desc.moveName = 'Éco-Sphère';
                         break;
                     case 'Misty':
                         basePower = 95;
-                        desc.moveName = 'Moonblast';
+                        desc.moveName = 'Pouvoir Lunaire';
                         break;
                     default:
                         basePower = 80;
-                        desc.moveName = 'Tri Attack';
+                        desc.moveName = 'Triplattaque';
                 }
             }
             break;
-        case 'Triple Kick':
+        case 'Triple Pied':
             basePower = move.hits === 2 ? 15 : move.hits === 3 ? 30 : 10;
             desc.moveBP = basePower;
             break;
-        case 'Crush Grip':
-        case 'Wring Out':
+        case 'Presse':
+        case 'Essorage':
             basePower = 100 * Math.floor((defender.curHP() * 4096) / defender.maxHP());
             basePower = Math.floor(Math.floor((120 * basePower + 2048 - 1) / 4096) / 100) || 1;
             desc.moveBP = basePower;
@@ -407,17 +407,17 @@ function calculateBWXY(gen, attacker, defender, move, field) {
         bpMods.push(gen.num > 5 ? 5325 : 6144);
         desc.attackerItem = attacker.item;
     }
-    if ((move.named('Facade') && attacker.hasStatus('brn', 'par', 'psn', 'tox')) ||
-        (move.named('Brine') && defender.curHP() <= defender.maxHP() / 2) ||
-        (move.named('Venoshock') && defender.hasStatus('psn', 'tox'))) {
+    if ((move.named('Façade') && attacker.hasStatus('brn', 'par', 'psn', 'tox')) ||
+        (move.named('Saumure') && defender.curHP() <= defender.maxHP() / 2) ||
+        (move.named('Choc Venin') && defender.hasStatus('psn', 'tox'))) {
         bpMods.push(8192);
         desc.moveBP = basePower * 2;
     }
-    else if (gen.num > 5 && move.named('Knock Off') && !resistedKnockOffDamage) {
+    else if (gen.num > 5 && move.named('Sabotage') && !resistedKnockOffDamage) {
         bpMods.push(6144);
         desc.moveBP = basePower * 1.5;
     }
-    else if (move.named('Solar Beam') && field.hasWeather('Rain', 'Heavy Rain', 'Sand', 'Hail')) {
+    else if (move.named('Lance-Soleil') && field.hasWeather('Rain', 'Heavy Rain', 'Sand', 'Grêle')) {
         bpMods.push(2048);
         desc.moveBP = basePower / 2;
         desc.weather = field.weather;
@@ -471,17 +471,17 @@ function calculateBWXY(gen, attacker, defender, move, field) {
     }
     if ((0, util_2.isGrounded)(defender, field)) {
         if ((field.hasTerrain('Misty') && move.hasType('Dragon')) ||
-            (field.hasTerrain('Grassy') && move.named('Bulldoze', 'Earthquake'))) {
+            (field.hasTerrain('Grassy') && move.named('Piétisol', 'Séisme'))) {
             bpMods.push(2048);
             desc.terrain = field.terrain;
         }
     }
     basePower = (0, util_2.OF16)(Math.max(1, (0, util_2.pokeRound)((basePower * (0, util_2.chainMods)(bpMods, 41, 2097152)) / 4096)));
     var attack;
-    var attackSource = move.named('Foul Play') ? defender : attacker;
+    var attackSource = move.named('Tricherie') ? defender : attacker;
     var attackStat = move.category === 'Special' ? 'spa' : 'atk';
     desc.attackEVs =
-        move.named('Foul Play')
+        move.named('Tricherie')
             ? (0, util_2.getEVDescriptionText)(gen, defender, attackStat, defender.nature)
             : (0, util_2.getEVDescriptionText)(gen, attacker, attackStat, attacker.nature);
     if (attackSource.boosts[attackStat] === 0 ||
@@ -667,7 +667,7 @@ function calculateBWXY(gen, attacker, defender, move, field) {
     var applyBurn = attacker.hasStatus('brn') &&
         move.category === 'Physical' &&
         !attacker.hasAbility('Cran') &&
-        !(move.named('Facade') && gen.num === 6);
+        !(move.named('Façade') && gen.num === 6);
     desc.isBurned = applyBurn;
     var finalMods = [];
     if (field.defenderSide.isReflect && move.category === 'Physical' && !isCritical) {
@@ -700,7 +700,7 @@ function calculateBWXY(gen, attacker, defender, move, field) {
         finalMods.push(3072);
         desc.defenderAbility = defender.ability;
     }
-    if (attacker.hasItem('Metronome') && move.timesUsedWithMetronome >= 1) {
+    if (attacker.hasItem('Métronome') && move.timesUsedWithMetronome >= 1) {
         var timesUsedWithMetronome = Math.floor(move.timesUsedWithMetronome);
         if (timesUsedWithMetronome <= 4) {
             finalMods.push(4096 + timesUsedWithMetronome * 819);
@@ -781,7 +781,7 @@ function calculateBWXY(gen, attacker, defender, move, field) {
         }
     }
     desc.attackBoost =
-        move.named('Foul Play') ? defender.boosts[attackStat] : attacker.boosts[attackStat];
+        move.named('Tricherie') ? defender.boosts[attackStat] : attacker.boosts[attackStat];
     result.damage = childDamage ? [damage, childDamage] : damage;
     return result;
 }

@@ -30,7 +30,7 @@ function display(gen, attacker, defender, move, field, damage, rawDesc, notation
     var maxDisplay = toDisplay(notation, max, defender.maxHP());
     var desc = buildDescription(rawDesc, attacker, defender);
     var damageText = "".concat(min, "-").concat(max, " (").concat(minDisplay, " - ").concat(maxDisplay).concat(notation, ")");
-    if (move.category === 'Status' && !move.named('Nature Power'))
+    if (move.category === 'Status' && !move.named('Force Nature'))
         return "".concat(desc, ": ").concat(damageText);
     var koChanceText = getKOChance(gen, attacker, defender, move, field, damage, err).text;
     return koChanceText ? "".concat(desc, ": ").concat(damageText, " -- ").concat(koChanceText) : "".concat(desc, ": ").concat(damageText);
@@ -56,7 +56,7 @@ function getRecovery(gen, attacker, defender, move, damage, notation) {
     var maxD = typeof maxDamage === 'number' ? [maxDamage] : maxDamage;
     var recovery = [0, 0];
     var text = '';
-    var ignoresShellBell = gen.num === 3 && move.named('Doom Desire', 'Future Sight');
+    var ignoresShellBell = gen.num === 3 && move.named('Vœu Destructeur', 'Prescience');
     if (attacker.hasItem('Shell Bell') && !ignoresShellBell) {
         var max = Math.round(defender.maxHP() / 8);
         for (var i = 0; i < minD.length; i++) {
@@ -64,7 +64,7 @@ function getRecovery(gen, attacker, defender, move, damage, notation) {
             recovery[1] += Math.min(Math.round(maxD[i] * move.hits / 8), max);
         }
     }
-    if (move.named('G-Max Finale')) {
+    if (move.named('Cure G-Max')) {
         recovery[0] = recovery[1] = Math.round(attacker.maxHP() / 6);
     }
     if (move.drain) {
@@ -294,8 +294,8 @@ function combine(damage) {
     return combined.sort();
 }
 var TRAPPING = [
-    'Bind', 'Clamp', 'Fire Spin', 'Infestation', 'Magma Storm', 'Sand Tomb',
-    'Thunder Cage', 'Whirlpool', 'Wrap', 'G-Max Sandblast', 'G-Max Centiferno',
+    'Étreinte', 'Claquoir', 'Danse Flammes', 'Harcèlement', 'Vortex Magma', 'Tourbi-Sable',
+    'Voltageôle', 'Siphon', 'Ligotage', 'Enlisement G-Max', 'Combustion G-Max',
 ];
 function getHazards(gen, defender, defenderSide) {
     var damage = 0;
@@ -308,7 +308,7 @@ function getHazards(gen, defender, defenderSide) {
         var effectiveness = rockType.effectiveness[defender.types[0]] *
             (defender.types[1] ? rockType.effectiveness[defender.types[1]] : 1);
         damage += Math.floor((effectiveness * defender.maxHP()) / 8);
-        texts.push('Stealth Rock');
+        texts.push('Piège de Roc');
     }
     if (defenderSide.steelsurge && !defender.hasAbility('Garde Magik', 'Mountaineer')) {
         var steelType = gen.types.get('steel');
@@ -323,7 +323,7 @@ function getHazards(gen, defender, defenderSide) {
         if (defenderSide.spikes === 1) {
             damage += Math.floor(defender.maxHP() / 8);
             if (gen.num === 2) {
-                texts.push('Spikes');
+                texts.push('Picots');
             }
             else {
                 texts.push('1 layer of Spikes');
@@ -370,7 +370,7 @@ function getEndOfTurn(gen, attacker, defender, move, field) {
             texts.push('sandstorm damage');
         }
     }
-    else if (field.hasWeather('Hail', 'Snow')) {
+    else if (field.hasWeather('Grêle', 'Snow')) {
         if (defender.hasAbility('Corps Gel')) {
             damage += Math.floor(defender.maxHP() / 16);
             texts.push('Ice Body recovery');
@@ -378,12 +378,12 @@ function getEndOfTurn(gen, attacker, defender, move, field) {
         else if (!defender.hasType('Ice') &&
             !defender.hasAbility('Garde Magik', 'Envelocape', 'Rideau Neige') &&
             !defender.hasItem('Safety Goggles') &&
-            field.hasWeather('Hail')) {
+            field.hasWeather('Grêle')) {
             damage -= Math.floor(defender.maxHP() / 16);
             texts.push('hail damage');
         }
     }
-    var loseItem = move.named('Knock Off') && !defender.hasAbility('Glu');
+    var loseItem = move.named('Sabotage') && !defender.hasAbility('Glu');
     if (defender.hasItem('Leftovers') && !loseItem) {
         damage += Math.floor(defender.maxHP() / 16);
         texts.push('Leftovers recovery');
@@ -473,7 +473,7 @@ function getEndOfTurn(gen, attacker, defender, move, field) {
         var isWaterOrSteel = defender.hasType('Water', 'Steel') ||
             (defender.teraType && ['Water', 'Steel'].includes(defender.teraType));
         damage -= Math.floor(defender.maxHP() / (isWaterOrSteel ? 4 : 8));
-        texts.push('Salt Cure');
+        texts.push('Salaison');
     }
     if (!defender.hasType('Fire') && !defender.hasAbility('Garde Magik') &&
         (move.named('Fire Pledge (Grass Pledge Boosted)', 'Grass Pledge (Fire Pledge Boosted)'))) {
@@ -481,22 +481,22 @@ function getEndOfTurn(gen, attacker, defender, move, field) {
         texts.push('Sea of Fire damage');
     }
     if (!defender.hasAbility('Garde Magik') && !defender.hasType('Grass') &&
-        (field.defenderSide.vinelash || move.named('G-Max Vine Lash'))) {
+        (field.defenderSide.vinelash || move.named('Fouet G-Max'))) {
         damage -= Math.floor(defender.maxHP() / 6);
         texts.push('Vine Lash damage');
     }
     if (!defender.hasAbility('Garde Magik') && !defender.hasType('Fire') &&
-        (field.defenderSide.wildfire || move.named('G-Max Wildfire'))) {
+        (field.defenderSide.wildfire || move.named('Téphra G-Max'))) {
         damage -= Math.floor(defender.maxHP() / 6);
         texts.push('Wildfire damage');
     }
     if (!defender.hasAbility('Garde Magik') && !defender.hasType('Water') &&
-        (field.defenderSide.cannonade || move.named('G-Max Cannonade'))) {
+        (field.defenderSide.cannonade || move.named('Canonnade G-Max'))) {
         damage -= Math.floor(defender.maxHP() / 6);
         texts.push('Cannonade damage');
     }
     if (!defender.hasAbility('Garde Magik') && !defender.hasType('Rock') &&
-        (field.defenderSide.volcalith || move.named('G-Max Volcalith'))) {
+        (field.defenderSide.volcalith || move.named('Fournaise G-Max'))) {
         damage -= Math.floor(defender.maxHP() / 6);
         texts.push('Volcalith damage');
     }

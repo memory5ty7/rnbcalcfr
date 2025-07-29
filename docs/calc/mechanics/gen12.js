@@ -69,13 +69,13 @@ function calculateRBYGSC(gen, attacker, defender, move, field) {
     if (move.hits > 1) {
         desc.hits = move.hits;
     }
-    if (move.named('Flail', 'Reversal')) {
+    if (move.named('Gigotage', 'Contre')) {
         move.isCrit = false;
         var p = Math.floor((48 * attacker.curHP()) / attacker.maxHP());
         move.bp = p <= 1 ? 200 : p <= 4 ? 150 : p <= 9 ? 100 : p <= 16 ? 80 : p <= 32 ? 40 : 20;
         desc.moveBP = move.bp;
     }
-    else if (move.named('Present') && !move.bp) {
+    else if (move.named('Cadeau') && !move.bp) {
         move.bp = 40;
     }
     if (move.bp === 0) {
@@ -108,7 +108,7 @@ function calculateRBYGSC(gen, attacker, defender, move, field) {
             desc.isBurned = true;
         }
     }
-    if (move.named('Explosion', 'Self-Destruct')) {
+    if (move.named('Explosion', 'Destruction')) {
         df = Math.floor(df / 2);
     }
     if (!ignoreMods) {
@@ -130,7 +130,7 @@ function calculateRBYGSC(gen, attacker, defender, move, field) {
         at = Math.floor(at / 4) % 256;
         df = Math.floor(df / 4) % 256;
     }
-    if (move.named('Present')) {
+    if (move.named('Cadeau')) {
         var lookup = {
             Normal: 0, Fighting: 1, Flying: 2, Poison: 3, Ground: 4, Rock: 5, Bug: 7,
             Ghost: 8, Steel: 9, '???': 19, Fire: 20, Water: 21, Grass: 22, Electric: 23,
@@ -149,7 +149,7 @@ function calculateRBYGSC(gen, attacker, defender, move, field) {
         baseDamage *= 2;
         desc.isCritical = true;
     }
-    if (move.named('Pursuit') && field.defenderSide.isSwitching === 'out') {
+    if (move.named('Poursuite') && field.defenderSide.isSwitching === 'out') {
         baseDamage = Math.floor(baseDamage * 2);
         desc.isSwitching = 'out';
     }
@@ -167,7 +167,7 @@ function calculateRBYGSC(gen, attacker, defender, move, field) {
         desc.weather = field.weather;
     }
     else if ((field.hasWeather('Sun') && move.hasType('Water')) ||
-        (field.hasWeather('Rain') && (move.hasType('Fire') || move.named('Solar Beam')))) {
+        (field.hasWeather('Rain') && (move.hasType('Fire') || move.named('Lance-Soleil')))) {
         baseDamage = Math.floor(baseDamage / 2);
         desc.weather = field.weather;
     }
@@ -181,7 +181,7 @@ function calculateRBYGSC(gen, attacker, defender, move, field) {
     else {
         baseDamage = Math.floor(baseDamage * typeEffectiveness);
     }
-    if (move.named('Flail', 'Reversal')) {
+    if (move.named('Gigotage', 'Contre')) {
         result.damage = baseDamage;
         return result;
     }

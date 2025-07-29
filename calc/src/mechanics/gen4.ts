@@ -49,7 +49,7 @@ export function calculateDPP(
 
   const result = new Result(gen, attacker, defender, move, field, 0, desc);
 
-  if (move.category === 'Status' && !move.named('Nature Power')) {
+  if (move.category === 'Status' && !move.named('Force Nature')) {
     return result;
   }
 
@@ -66,7 +66,7 @@ export function calculateDPP(
   const isCritical = move.isCrit && !defender.hasAbility('Armurbaston', 'Coque Armure');
 
   let basePower = move.bp;
-  if (move.named('Weather Ball')) {
+  if (move.named('Ball\'Météo')) {
     if (field.hasWeather('Sun')) {
       move.type = 'Fire';
       basePower *= 2;
@@ -76,7 +76,7 @@ export function calculateDPP(
     } else if (field.hasWeather('Sand')) {
       move.type = 'Rock';
       basePower *= 2;
-    } else if (field.hasWeather('Hail')) {
+    } else if (field.hasWeather('Grêle')) {
       move.type = 'Ice';
       basePower *= 2;
     } else {
@@ -86,9 +86,9 @@ export function calculateDPP(
     desc.weather = field.weather;
     desc.moveType = move.type;
     desc.moveBP = basePower;
-  } else if (move.named('Judgment') && attacker.item && attacker.item.includes('Plate')) {
+  } else if (move.named('Jugement') && attacker.item && attacker.item.includes('Plate')) {
     move.type = getItemBoostType(attacker.item)!;
-  } else if (move.named('Natural Gift') && attacker.item && attacker.item.includes('Berry')) {
+  } else if (move.named('Don Naturel') && attacker.item && attacker.item.includes('Berry')) {
     const gift = getNaturalGift(gen, attacker.item)!;
     move.type = gift.t;
     move.bp = gift.p;
@@ -125,7 +125,7 @@ export function calculateDPP(
     return result;
   }
 
-  const ignoresWonderGuard = move.hasType('???') || move.named('Fire Fang');
+  const ignoresWonderGuard = move.hasType('???') || move.named('Crocs Feu');
   if ((!ignoresWonderGuard && defender.hasAbility('Garde Mystik') && typeEffectiveness <= 1) ||
       (move.hasType('Fire') && defender.hasAbility('Torche')) ||
       (move.hasType('Water') && defender.hasAbility('Peau Sèche', 'Absorbe-Eau')) ||
@@ -155,68 +155,68 @@ export function calculateDPP(
   // #region Base Power
 
   switch (move.name) {
-  case 'Brine':
+  case 'Saumure':
     if (defender.curHP() <= defender.maxHP() / 2) {
       basePower *= 2;
       desc.moveBP = basePower;
     }
     break;
-  case 'Eruption':
-  case 'Water Spout':
+  case 'Éruption':
+  case 'Giclédo':
     basePower = Math.max(1, Math.floor((basePower * attacker.curHP()) / attacker.maxHP()));
     desc.moveBP = basePower;
     break;
-  case 'Facade':
+  case 'Façade':
     if (attacker.hasStatus('par', 'psn', 'tox', 'brn')) {
       basePower = move.bp * 2;
       desc.moveBP = basePower;
     }
     break;
-  case 'Flail':
-  case 'Reversal':
+  case 'Gigotage':
+  case 'Contre':
     const p = Math.floor((64 * attacker.curHP()) / attacker.maxHP());
     basePower = p <= 1 ? 200 : p <= 5 ? 150 : p <= 12 ? 100 : p <= 21 ? 80 : p <= 42 ? 40 : 20;
     desc.moveBP = basePower;
     break;
-  case 'Fling':
+  case 'Dégommage':
     basePower = getFlingPower(attacker.item);
     desc.moveBP = basePower;
     desc.attackerItem = attacker.item;
     break;
-  case 'Grass Knot':
-  case 'Low Kick':
+  case 'Nœud Herbe':
+  case 'Balayage':
     const w = defender.weightkg;
     basePower = w >= 200 ? 120 : w >= 100 ? 100 : w >= 50 ? 80 : w >= 25 ? 60 : w >= 10 ? 40 : 20;
     desc.moveBP = basePower;
     break;
-  case 'Gyro Ball':
+  case 'Gyroballe':
     basePower = Math.min(150, Math.floor((25 * defender.stats.spe) / attacker.stats.spe));
     desc.moveBP = basePower;
     break;
-  case 'Payback':
+  case 'Représailles':
     if (turnOrder !== 'first') {
       basePower *= 2;
       desc.moveBP = basePower;
     }
     break;
-  case 'Punishment':
+  case 'Punition':
     basePower = Math.min(200, 60 + 20 * countBoosts(gen, defender.boosts));
     desc.moveBP = basePower;
     break;
-  case 'Wake-Up Slap':
+  case 'Réveil Forcé':
     if (defender.hasStatus('slp')) {
       basePower *= 2;
       desc.moveBP = basePower;
     }
     break;
-  case 'Nature Power':
+  case 'Force Nature':
     move.category = 'Special';
     move.secondaries = true;
     basePower = 80;
-    desc.moveName = 'Tri Attack';
+    desc.moveName = 'Triplattaque';
     break;
-  case 'Crush Grip':
-  case 'Wring Out':
+  case 'Presse':
+  case 'Essorage':
     basePower = Math.floor((defender.curHP() * 120) / defender.maxHP()) + 1;
     desc.moveBP = basePower;
     break;
@@ -388,7 +388,7 @@ export function calculateDPP(
     desc.weather = field.weather;
   }
 
-  if (move.named('Explosion') || move.named('Self-Destruct')) {
+  if (move.named('Explosion') || move.named('Destruction')) {
     defense = Math.floor(defense * 0.5);
   }
 
@@ -431,7 +431,7 @@ export function calculateDPP(
   } else if (
     (field.hasWeather('Sun') && move.hasType('Water')) ||
     (field.hasWeather('Rain') && move.hasType('Fire')) ||
-    (move.named('Solar Beam') && field.hasWeather('Rain', 'Sand', 'Hail'))
+    (move.named('Lance-Soleil') && field.hasWeather('Rain', 'Sand', 'Grêle'))
   ) {
     baseDamage = Math.floor(baseDamage * 0.5);
     desc.weather = field.weather;
@@ -459,7 +459,7 @@ export function calculateDPP(
     desc.attackerItem = attacker.item;
   }
 
-  if (move.named('Pursuit') && field.defenderSide.isSwitching === 'out') {
+  if (move.named('Poursuite') && field.defenderSide.isSwitching === 'out') {
     // technician negates switching boost, thanks DaWoblefet
     if (attacker.hasAbility('Technicien')) {
       baseDamage = Math.floor(baseDamage * 1);

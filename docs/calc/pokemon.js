@@ -203,8 +203,8 @@ var Pokemon = (function () {
             ((item.includes('ite') && !item.includes('ite Y')) ||
                 (speciesName === 'Groudon' && item === 'Red Orb') ||
                 (speciesName === 'Kyogre' && item === 'Blue Orb'))) ||
-            (moveName && speciesName === 'Meloetta' && moveName === 'Relic Song') ||
-            (speciesName === 'Rayquaza' && moveName === 'Dragon Ascent')) {
+            (moveName && speciesName === 'Meloetta' && moveName === 'Chant Antique') ||
+            (speciesName === 'Rayquaza' && moveName === 'Draco-Ascension')) {
             i = 1;
         }
         else if (item === null || item === void 0 ? void 0 : item.includes('ite Y')) {

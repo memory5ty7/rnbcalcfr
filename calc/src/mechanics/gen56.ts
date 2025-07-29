@@ -78,7 +78,7 @@ export function calculateBWXY(
 
   const result = new Result(gen, attacker, defender, move, field, 0, desc);
 
-  if (move.category === 'Status' && !move.named('Nature Power')) {
+  if (move.category === 'Status' && !move.named('Force Nature')) {
     return result;
   }
 
@@ -95,27 +95,27 @@ export function calculateBWXY(
   const isCritical =
     move.isCrit && !defender.hasAbility('Armurbaston', 'Coque Armure') && move.timesUsed === 1;
 
-  if (move.named('Weather Ball')) {
+  if (move.named('Ball\'Météo')) {
     move.type =
       field.hasWeather('Sun', 'Harsh Sunshine') ? 'Fire'
       : field.hasWeather('Rain', 'Heavy Rain') ? 'Water'
       : field.hasWeather('Sand') ? 'Rock'
-      : field.hasWeather('Hail') ? 'Ice'
+      : field.hasWeather('Grêle') ? 'Ice'
       : 'Normal';
     desc.weather = field.weather;
     desc.moveType = move.type;
-  } else if (move.named('Judgment') && attacker.item && attacker.item.includes('Plate')) {
+  } else if (move.named('Jugement') && attacker.item && attacker.item.includes('Plate')) {
     move.type = getItemBoostType(attacker.item)!;
-  } else if (move.named('Techno Blast') && attacker.item && attacker.item.includes('Drive')) {
+  } else if (move.named('Techno-Buster') && attacker.item && attacker.item.includes('Drive')) {
     move.type = getTechnoBlast(attacker.item)!;
-  } else if (move.named('Natural Gift') && attacker.item && attacker.item.includes('Berry')) {
+  } else if (move.named('Don Naturel') && attacker.item && attacker.item.includes('Berry')) {
     const gift = getNaturalGift(gen, attacker.item)!;
     move.type = gift.t;
     move.bp = gift.p;
     desc.attackerItem = attacker.item;
     desc.moveBP = move.bp;
     desc.moveType = move.type;
-  } else if (move.named('Nature Power')) {
+  } else if (move.named('Force Nature')) {
     if (gen.num === 5) {
       move.type = 'Ground';
     } else {
@@ -132,7 +132,7 @@ export function calculateBWXY(
   let isRefrigerate = false;
   let isNormalize = false;
   const noTypeChange =
-    move.named('Judgment', 'Nature Power', 'Techo Blast', 'Natural Gift', 'Weather Ball');
+    move.named('Jugement', 'Force Nature', 'Techo Blast', 'Don Naturel', 'Ball\'Météo');
 
   if (!move.isZ && !noTypeChange) {
     const normal = move.hasType('Normal');
@@ -389,12 +389,12 @@ export function calculateBWXY(
     }
     break;
   // Triple Kick's damage doubles after each consecutive hit (10, 20, 30), this is a hack
-  case 'Triple Kick':
+  case 'Triple Pied':
     basePower = move.hits === 2 ? 15 : move.hits === 3 ? 30 : 10;
     desc.moveBP = basePower;
     break;
-  case 'Crush Grip':
-  case 'Wring Out':
+  case 'Presse':
+  case 'Essorage':
     basePower = 100 * Math.floor((defender.curHP() * 4096) / defender.maxHP());
     basePower = Math.floor(Math.floor((120 * basePower + 2048 - 1) / 4096) / 100) || 1;
     desc.moveBP = basePower;
@@ -488,15 +488,15 @@ export function calculateBWXY(
     desc.attackerItem = attacker.item;
   }
 
-  if ((move.named('Facade') && attacker.hasStatus('brn', 'par', 'psn', 'tox')) ||
-      (move.named('Brine') && defender.curHP() <= defender.maxHP() / 2) ||
-      (move.named('Venoshock') && defender.hasStatus('psn', 'tox'))) {
+  if ((move.named('Façade') && attacker.hasStatus('brn', 'par', 'psn', 'tox')) ||
+      (move.named('Saumure') && defender.curHP() <= defender.maxHP() / 2) ||
+      (move.named('Choc Venin') && defender.hasStatus('psn', 'tox'))) {
     bpMods.push(8192);
     desc.moveBP = basePower * 2;
-  } else if (gen.num > 5 && move.named('Knock Off') && !resistedKnockOffDamage) {
+  } else if (gen.num > 5 && move.named('Sabotage') && !resistedKnockOffDamage) {
     bpMods.push(6144);
     desc.moveBP = basePower * 1.5;
-  } else if (move.named('Solar Beam') && field.hasWeather('Rain', 'Heavy Rain', 'Sand', 'Hail')) {
+  } else if (move.named('Lance-Soleil') && field.hasWeather('Rain', 'Heavy Rain', 'Sand', 'Grêle')) {
     bpMods.push(2048);
     desc.moveBP = basePower / 2;
     desc.weather = field.weather;
@@ -554,7 +554,7 @@ export function calculateBWXY(
   }
   if (isGrounded(defender, field)) {
     if ((field.hasTerrain('Misty') && move.hasType('Dragon')) ||
-        (field.hasTerrain('Grassy') && move.named('Bulldoze', 'Earthquake'))
+        (field.hasTerrain('Grassy') && move.named('Piétisol', 'Séisme'))
     ) {
       bpMods.push(2048);
       desc.terrain = field.terrain;
@@ -567,10 +567,10 @@ export function calculateBWXY(
   // #region (Special) Attack
 
   let attack: number;
-  const attackSource = move.named('Foul Play') ? defender : attacker;
+  const attackSource = move.named('Tricherie') ? defender : attacker;
   const attackStat = move.category === 'Special' ? 'spa' : 'atk';
   desc.attackEVs =
-    move.named('Foul Play')
+    move.named('Tricherie')
       ? getEVDescriptionText(gen, defender, attackStat, defender.nature)
       : getEVDescriptionText(gen, attacker, attackStat, attacker.nature);
 
@@ -787,7 +787,7 @@ export function calculateBWXY(
     attacker.hasStatus('brn') &&
     move.category === 'Physical' &&
     !attacker.hasAbility('Cran') &&
-    !(move.named('Facade') && gen.num === 6);
+    !(move.named('Façade') && gen.num === 6);
   desc.isBurned = applyBurn;
 
   const finalMods = [];
@@ -827,7 +827,7 @@ export function calculateBWXY(
     desc.defenderAbility = defender.ability;
   }
 
-  if (attacker.hasItem('Metronome') && move.timesUsedWithMetronome! >= 1) {
+  if (attacker.hasItem('Métronome') && move.timesUsedWithMetronome! >= 1) {
     const timesUsedWithMetronome = Math.floor(move.timesUsedWithMetronome!);
     if (timesUsedWithMetronome <= 4) {
       finalMods.push(4096 + timesUsedWithMetronome * 819);
@@ -921,7 +921,7 @@ export function calculateBWXY(
   }
 
   desc.attackBoost =
-    move.named('Foul Play') ? defender.boosts[attackStat] : attacker.boosts[attackStat];
+    move.named('Tricherie') ? defender.boosts[attackStat] : attacker.boosts[attackStat];
 
   result.damage = childDamage ? [damage, childDamage] : damage;
 

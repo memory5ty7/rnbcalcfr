@@ -199,8 +199,8 @@ export class Pokemon implements State.Pokemon {
         ((item.includes('ite') && !item.includes('ite Y')) ||
           (speciesName === 'Groudon' && item === 'Red Orb') ||
           (speciesName === 'Kyogre' && item === 'Blue Orb'))) ||
-      (moveName && speciesName === 'Meloetta' && moveName === 'Relic Song') ||
-      (speciesName === 'Rayquaza' && moveName === 'Dragon Ascent')
+      (moveName && speciesName === 'Meloetta' && moveName === 'Chant Antique') ||
+      (speciesName === 'Rayquaza' && moveName === 'Draco-Ascension')
     ) {
       i = 1;
     } else if (item?.includes('ite Y')) {

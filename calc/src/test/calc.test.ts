@@ -7,7 +7,7 @@ describe('calc', () => {
   describe('Multi-Gen', () => {
     inGens(4, 7, ({gen, calculate, Pokemon, Move}) => {
       test(`Grass Knot (gen ${gen})`, () => {
-        const result = calculate(Pokemon('Groudon'), Pokemon('Groudon'), Move('Grass Knot'));
+        const result = calculate(Pokemon('Groudon'), Pokemon('Groudon'), Move('Nœud Herbe'));
         expect(result.range()).toEqual([190, 224]);
       });
     });
@@ -17,7 +17,7 @@ describe('calc', () => {
         const result = calculate(
           Pokemon('Arceus', {item: 'Meadow Plate'}),
           Pokemon('Blastoise'),
-          Move('Judgment')
+          Move('Jugement')
         );
         expect(result.range()).toEqual([194, 230]);
         expect(result.desc()).toBe(
@@ -30,7 +30,7 @@ describe('calc', () => {
       test(`Night Shade / Seismic Toss (gen ${gen})`, () => {
         const mew = Pokemon('Mew', {level: 50});
         const vulpix = Pokemon('Vulpix');
-        for (const move of [Move('Seismic Toss'), Move('Night Shade')]) {
+        for (const move of [Move('Frappe Atlas'), Move('Ombre Nocturne')]) {
           const result = calculate(mew, vulpix, move);
           expect(result.damage).toBe(50);
           expect(result.desc()).toBe(
@@ -42,8 +42,8 @@ describe('calc', () => {
       });
     });
 
-    tests('Comet Punch', ({gen, calculate, Pokemon, Move}) => {
-      expect(calculate(Pokemon('Snorlax'), Pokemon('Vulpix'), Move('Comet Punch'))).toMatch(gen, {
+    tests('Poing Comète', ({gen, calculate, Pokemon, Move}) => {
+      expect(calculate(Pokemon('Snorlax'), Pokemon('Vulpix'), Move('Poing Comète'))).toMatch(gen, {
         1: {range: [36, 43], desc: 'Snorlax Comet Punch (3 hits) vs. Vulpix', result: '(38.7 - 46.2%) -- approx. 3HKO'},
         3: {range: [44, 52], desc: '0 Atk Snorlax Comet Punch (3 hits) vs. 0 HP / 0 Def Vulpix', result: '(60.8 - 71.8%) -- approx. 2HKO'},
         4: {range: [43, 52], result: '(59.4 - 71.8%) -- approx. 2HKO'},
@@ -52,13 +52,13 @@ describe('calc', () => {
 
     inGens(1, 9, ({gen, calculate, Pokemon, Move}) => {
       test(`Immunity (gen ${gen})`, () => {
-        expect(calculate(Pokemon('Snorlax'), Pokemon('Gengar'), Move('Hyper Beam')).damage).toBe(0);
+        expect(calculate(Pokemon('Snorlax'), Pokemon('Gengar'), Move('Ultralaser')).damage).toBe(0);
       });
     });
 
     inGens(1, 9, ({gen, calculate, Pokemon, Move}) => {
       test(`Non-damaging (gen ${gen})`, () => {
-        const result = calculate(Pokemon('Snorlax'), Pokemon('Vulpix'), Move('Barrier'));
+        const result = calculate(Pokemon('Snorlax'), Pokemon('Vulpix'), Move('Bouclier'));
         expect(result.damage).toBe(0);
         expect(result.desc()).toBe('Snorlax Barrier vs. Vulpix: 0-0 (0 - 0%)');
       });
@@ -69,7 +69,7 @@ describe('calc', () => {
         const field = Field({defenderSide: {isProtected: true}});
         const snorlax = Pokemon('Snorlax');
         const chansey = Pokemon('Chansey');
-        expect(calculate(snorlax, chansey, Move('Hyper Beam'), field).damage).toBe(0);
+        expect(calculate(snorlax, chansey, Move('Ultralaser'), field).damage).toBe(0);
       });
     });
 
@@ -120,7 +120,7 @@ describe('calc', () => {
 
     inGens(1, 9, ({gen, calculate, Pokemon, Move}) => {
       test(`Struggle vs. Ghost (gen ${gen})`, () => {
-        const result = calculate(Pokemon('Mew'), Pokemon('Gengar'), Move('Struggle'));
+        const result = calculate(Pokemon('Mew'), Pokemon('Gengar'), Move('Lutte'));
         if (gen < 2) {
           expect(result.range()[1]).toBe(0);
         } else {
@@ -163,7 +163,7 @@ describe('calc', () => {
             },
           },
           {
-            weather: 'Hail', type: 'Ice', damage: {
+            weather: 'Grêle', type: 'Ice', damage: {
               adv: {
                 range: [234, 276],
                 desc: '(101.2 - 119.4%) -- guaranteed OHKO',
@@ -187,7 +187,7 @@ describe('calc', () => {
           const result = calculate(
             Pokemon('Castform'),
             Pokemon('Bulbasaur'),
-            Move('Weather Ball'),
+            Move('Ball\'Météo'),
             Field({weather: weather as Weather})
           );
           expect(result.range()).toEqual(dmg.range);
@@ -200,7 +200,7 @@ describe('calc', () => {
 
     inGens(6, 9, ({gen, calculate, Pokemon, Move}) => {
       test(`Thousand Arrows and Ring Target Should negate damage nullfiers (gen ${gen})`, () => {
-        const result = calculate(Pokemon('Zygarde'), Pokemon('Swellow'), Move('Thousand Arrows'));
+        const result = calculate(Pokemon('Zygarde'), Pokemon('Swellow'), Move('Myria-Flèches'));
         expect(result.range()).toEqual([147, 174]);
         expect(result.desc()).toBe(
           '0 Atk Zygarde Thousand Arrows vs. 0 HP / 0 Def Swellow: 147-174 (56.3 - 66.6%) -- guaranteed 2HKO'
@@ -212,7 +212,7 @@ describe('calc', () => {
       const zapdos = Pokemon('Zapdos', {item: 'Iron Ball'});
       if (gen === 4) {
         test(`Iron Ball negates ground immunities (gen ${gen})`, () => {
-          const result = calculate(Pokemon('Vibrava'), zapdos, Move('Earthquake'));
+          const result = calculate(Pokemon('Vibrava'), zapdos, Move('Séisme'));
           expect(result.range()).toEqual([186, 218]);
           expect(result.desc()).toBe(
             '0 Atk Vibrava Earthquake vs. 0 HP / 0 Def Zapdos: 186-218 (57.9 - 67.9%) -- guaranteed 2HKO'
@@ -220,7 +220,7 @@ describe('calc', () => {
         });
       } else {
         test(`Iron Ball Should negate damage nullifiers (gen ${gen})`, () => {
-          const result = calculate(Pokemon('Vibrava'), zapdos, Move('Earthquake'));
+          const result = calculate(Pokemon('Vibrava'), zapdos, Move('Séisme'));
           expect(result.range()).toEqual([93, 109]);
           expect(result.desc()).toBe(
             '0 Atk Vibrava Earthquake vs. 0 HP / 0 Def Zapdos: 93-109 (28.9 - 33.9%) -- 1.2% chance to 3HKO'
@@ -228,7 +228,7 @@ describe('calc', () => {
         });
       }
       test(`Iron Ball negates levitate (gen ${gen})`, () => {
-        const result = calculate(Pokemon('Poliwrath'), Pokemon('Mismagius', {item: 'Iron Ball'}), Move('Mud Shot'));
+        const result = calculate(Pokemon('Poliwrath'), Pokemon('Mismagius', {item: 'Iron Ball'}), Move('Tir de Boue'));
         expect(result.range()).toEqual([29, 35]);
         expect(result.desc()).toBe(
           '0 SpA Poliwrath Mud Shot vs. 0 HP / 0 SpD Mismagius: 29-35 (11.1 - 13.4%) -- possible 8HKO'
@@ -245,7 +245,7 @@ describe('calc', () => {
 
     inGens(7, 9, ({gen, calculate, Pokemon, Move, Field}) => {
       test(`Psychic Terrain (gen ${gen})`, () => {
-        const field = Field({terrain: 'Psychic'});
+        const field = Field({terrain: 'Psyko'});
         const Mewtwo = Pokemon('Mewtwo', {
           nature: 'Timid',
           evs: {spa: 252},
@@ -259,8 +259,8 @@ describe('calc', () => {
           status: 'brn',
           boosts: {spd: 1},
         });
-        const Psystrike = Move('Psystrike');
-        const sPunch = Move('Sucker Punch');
+        const Psystrike = Move('Frappe Psy');
+        const sPunch = Move('Coup Bas');
         let result = calculate(Mewtwo, Milotic, Psystrike, field);
         if (gen < 8) {
           expect(result.range()).toEqual([331, 391]);
@@ -307,7 +307,7 @@ describe('calc', () => {
         result = calculate(
           Pokemon('Kangaskhan-Mega', {level: 88}),
           Pokemon('Amoonguss'),
-          Move('Seismic Toss')
+          Move('Frappe Atlas')
         );
         expect(result.damage).toEqual([88, 88]);
         expect(result.desc()).toBe(
@@ -317,7 +317,7 @@ describe('calc', () => {
         result = calculate(
           Pokemon('Kangaskhan-Mega', {evs: {atk: 252}}),
           Pokemon('Aggron', {level: 72}),
-          Move('Power-Up Punch')
+          Move('Poing Boost')
         );
         if (gen === 6) {
           expect(result.desc()).toBe(
@@ -334,7 +334,7 @@ describe('calc', () => {
         result = calculate(
           Pokemon('Kangaskhan-Mega', {evs: {atk: 252}}),
           Pokemon('Lunala'),
-          Move('Crunch')
+          Move('Mâchouille')
         );
 
         expect(result.damage).toEqual([
@@ -352,14 +352,14 @@ describe('calc', () => {
   describe('Gen 1', () => {
     inGen(1, ({calculate, Pokemon, Move, Field}) => {
       test('Basic: Gengar vs. Chansey', () => {
-        const result = calculate(Pokemon('Gengar'), Pokemon('Chansey'), Move('Thunderbolt'));
+        const result = calculate(Pokemon('Gengar'), Pokemon('Chansey'), Move('Tonnerre'));
         expect(result.range()).toEqual([79, 94]);
         expect(result.desc()).toBe(
           'Gengar Thunderbolt vs. Chansey: 79-94 (11.2 - 13.3%) -- possible 8HKO'
         );
       });
 
-      test('Light Screen', () => {
+      test('Mur Lumière', () => {
         const field = Field({defenderSide: {isLightScreen: true}});
         const result = calculate(Pokemon('Gengar'), Pokemon('Vulpix'), Move('Surf'), field);
         expect(result.desc()).toBe(
@@ -375,7 +375,7 @@ describe('calc', () => {
         const result = calculate(
           Pokemon('Gengar'),
           Pokemon('Chansey', {item: 'Leftovers'}),
-          Move('Dynamic Punch')
+          Move('Dynamo-Poing')
         );
         expect(result.range()).toEqual([304, 358]);
         expect(result.desc()).toBe(
@@ -383,10 +383,10 @@ describe('calc', () => {
         );
       });
 
-      test('Struggle', () => {
+      test('Lutte', () => {
         const attacker = Pokemon('Skarmory', {boosts: {atk: 6, def: 6}});
         const defender = Pokemon('Skarmory', {boosts: {atk: 6, def: 6}});
-        const move = Move('Struggle');
+        const move = Move('Lutte');
         const result = calculate(attacker, defender, move);
         expect(result.range()).toEqual([37, 44]);
         expect(result.desc()).toBe(
@@ -394,10 +394,10 @@ describe('calc', () => {
         );
       });
 
-      test('Present', () => {
+      test('Cadeau', () => {
         const attacker = Pokemon('Togepi', {level: 5, boosts: {atk: -6}, status: 'brn'});
         const defender = Pokemon('Umbreon', {boosts: {def: 6}});
-        const move = Move('Present');
+        const move = Move('Cadeau');
         const field = Field({defenderSide: {isReflect: true}});
         const result = calculate(attacker, defender, move, field);
         expect(result.range()).toEqual([125, 147]);
@@ -411,7 +411,7 @@ describe('calc', () => {
         const zapdos = Pokemon('Zapdos', {ivs: {atk: 29, def: 27}, item: 'Leftovers'});
         expect(zapdos.ivs.hp).toBe(14);
 
-        const move = Move('Ancient Power');
+        const move = Move('Pouvoir Antique');
         const result = calculate(aerodactyl, zapdos, move);
         expect(result.range()).toEqual([153, 180]);
         expect(result.desc()).toBe(
@@ -434,7 +434,7 @@ describe('calc', () => {
             nature: 'Bold',
             evs: {hp: 252, def: 252},
           }),
-          Move('Focus Punch')
+          Move('Mitra-Poing')
         );
         expect(result.range()).toEqual([346, 408]);
         expect(result.desc()).toBe(
@@ -509,7 +509,7 @@ describe('calc', () => {
             nature: 'Calm',
             evs: {hp: 252, spd: 252},
           }),
-          Move('Focus Blast')
+          Move('Exploforce')
         );
         expect(result.range()).toEqual([408, 482]);
         expect(result.desc()).toBe(
@@ -529,7 +529,7 @@ describe('calc', () => {
           evs: {spa: 252},
           boosts: {spa: 1},
         });
-        const earthquake = Move('Earthquake');
+        const earthquake = Move('Séisme');
 
         let result = calculate(pinsir, gengar, earthquake);
         expect(result.damage).toBe(0);
@@ -564,7 +564,7 @@ describe('calc', () => {
             nature: 'Calm',
             evs: {hp: 252, spd: 252},
           }),
-          Move('Focus Blast')
+          Move('Exploforce')
         );
         expect(result.range()).toEqual([274, 324]);
         expect(result.fullDesc('px')).toBe(
@@ -574,14 +574,14 @@ describe('calc', () => {
       test('Technician with Low Kick', () => {
         const ambipom = Pokemon('Ambipom', {level: 50, ability: 'Technicien'});
         const blissey = Pokemon('Blissey', {level: 50, evs: {hp: 252}});
-        let result = calculate(ambipom, blissey, Move('Low Kick'));
+        let result = calculate(ambipom, blissey, Move('Balayage'));
         expect(result.range()).toEqual([272, 320]);
         expect(result.desc()).toBe(
           '0 Atk Technician Ambipom Low Kick (60 BP) vs. 252 HP / 0 Def Blissey: 272-320 (75.1 - 88.3%) -- guaranteed 2HKO'
         );
 
         const aggron = Pokemon('Aggron', {level: 50, evs: {hp: 252}});
-        result = calculate(ambipom, aggron, Move('Low Kick'));
+        result = calculate(ambipom, aggron, Move('Balayage'));
         expect(result.range()).toEqual([112, 132]);
         expect(result.desc()).toBe(
           '0 Atk Ambipom Low Kick (120 BP) vs. 252 HP / 0 Def Aggron: 112-132 (63.2 - 74.5%) -- guaranteed 2HKO'
@@ -604,7 +604,7 @@ describe('calc', () => {
             nature: 'Bold',
             evs: {hp: 252, def: 252},
           }),
-          Move('Sludge Bomb')
+          Move('Bombe Beurk')
         );
         expect(result.range()).toEqual([134, 160]);
         expect(result.desc()).toBe(
@@ -644,7 +644,7 @@ describe('calc', () => {
             evs: {hp: 100, spd: 100},
             boosts: {spd: 1},
           }),
-          Move('Sludge Bomb')
+          Move('Bombe Beurk')
         );
         expect(result.range()).toEqual([204, 242]);
         expect(result.desc()).toBe(
@@ -653,7 +653,7 @@ describe('calc', () => {
       });
 
       test('Z-Move critical hits', () => {
-        const zMove = Move('Wood Hammer', {useZ: true, isCrit: true});
+        const zMove = Move('Martobois', {useZ: true, isCrit: true});
         const result = calculate(abomasnow, hoopa, zMove);
         expect(result.range()).toEqual([555, 654]);
         expect(result.desc()).toBe(
@@ -662,7 +662,7 @@ describe('calc', () => {
       });
 
       test('Recoil & Recovery', () => {
-        let result = calculate(abomasnow, hoopa, Move('Wood Hammer'));
+        let result = calculate(abomasnow, hoopa, Move('Martobois'));
         expect(result.range()).toEqual([234, 276]);
         expect(result.desc()).toBe(
           '252 Atk Abomasnow Wood Hammer vs. 32 HP / 0 Def Hoopa-Unbound: 234-276 (75.7 - 89.3%) -- guaranteed 2HKO'
@@ -671,7 +671,7 @@ describe('calc', () => {
         expect(recoil.recoil).toEqual([24, 28.3]);
         expect(recoil.text).toBe('24 - 28.3% recoil damage');
 
-        result = calculate(hoopa, abomasnow, Move('Drain Punch'));
+        result = calculate(hoopa, abomasnow, Move('Vampi-Poing'));
         expect(result.range()).toEqual([398, 470]);
         expect(result.desc()).toBe(
           '224 Atk Choice Band Hoopa-Unbound Drain Punch vs. 0 HP / 0- Def Abomasnow: 398-470 (123.9 - 146.4%) -- guaranteed OHKO'
@@ -685,7 +685,7 @@ describe('calc', () => {
         const field = Field({
           gameType: 'Doubles',
           terrain: 'Grassy',
-          weather: 'Hail',
+          weather: 'Grêle',
           defenderSide: {
             isSR: true,
             spikes: 1,
@@ -706,10 +706,10 @@ describe('calc', () => {
         );
       });
 
-      test('Wring Out', () => {
+      test('Essorage', () => {
         const smeargle = Pokemon('Smeargle', {level: 50, ability: 'Technicien'});
         const blissey = Pokemon('Blissey', {level: 50, evs: {hp: 252}, curHP: 184});
-        const result = calculate(smeargle, blissey, Move('Wring Out'));
+        const result = calculate(smeargle, blissey, Move('Essorage'));
         expect(result.range()).toEqual([15, 18]);
         expect(result.desc()).toBe(
           '0 SpA Technician Smeargle Wring Out (60 BP) vs. 252 HP / 0 SpD Blissey: 15-18 (4.1 - 4.9%)'
@@ -730,7 +730,7 @@ describe('calc', () => {
           evs: {spa: 252},
           boosts: {spa: 1},
         });
-        const earthquake = Move('Earthquake');
+        const earthquake = Move('Séisme');
 
         let result = calculate(pinsir, gengar, earthquake);
         expect(result.damage).toBe(0);
@@ -752,7 +752,7 @@ describe('calc', () => {
         const result = calculate(
           Pokemon('Mewtwo-Mega-Y', {evs: {spa: 196}}),
           Pokemon('Wynaut', {level: 1, boosts: {spd: -6}}),
-          Move('Fire Blast'),
+          Move('Déflagration'),
           Field({attackerSide: {isHelpingHand: true}})
         );
         expect(result.damage).toEqual([
@@ -772,7 +772,7 @@ describe('calc', () => {
           boosts: {spa: 6},
         });
         const wynaut = Pokemon('Wynaut', {level: 1, boosts: {spd: -6}});
-        const waterSpout = Move('Water Spout');
+        const waterSpout = Move('Giclédo');
         const field = Field({weather: 'Rain', attackerSide: {isHelpingHand: true}});
 
         expect(calculate(kyogre, wynaut, waterSpout, field).range()).toEqual([55, 66]);
@@ -799,7 +799,7 @@ describe('calc', () => {
             evs: {hp: 100, spd: 100},
             boosts: {spd: 1},
           }),
-          Move('Sludge Bomb')
+          Move('Bombe Beurk')
         );
         expect(result.range()).toEqual([204, 242]);
         expect(result.desc()).toBe(
@@ -810,7 +810,7 @@ describe('calc', () => {
       test('Knock Off vs. Silvally', () => {
         const sawk = Pokemon('Sawk', {ability: 'Brise Moule', evs: {atk: 252}});
         const silvally = Pokemon('Silvally-Dark', {item: 'Dark Memory'});
-        const knockoff = Move('Knock Off');
+        const knockoff = Move('Sabotage');
         const result = calculate(sawk, silvally, knockoff);
         expect(result.desc()).toBe(
           '252 Atk Mold Breaker Sawk Knock Off vs. 0 HP / 0 Def Silvally-Dark: 36-43 (10.8 - 12.9%) -- possible 8HKO'
@@ -820,7 +820,7 @@ describe('calc', () => {
       test('-ate Abilities', () => {
         const sylveon = Pokemon('Sylveon', {ability: 'Peau Féérique', evs: {spa: 252}});
         const silvally = Pokemon('Silvally');
-        const hypervoice = Move('Hyper Voice');
+        const hypervoice = Move('Mégaphone');
         const result = calculate(sylveon, silvally, hypervoice);
         expect(result.desc()).toBe(
           '252 SpA Pixilate Sylveon Hyper Voice vs. 0 HP / 0 SpD Silvally: 165-195 (49.8 - 58.9%) -- 99.6% chance to 2HKO'
@@ -835,7 +835,7 @@ describe('calc', () => {
         });
         const deerling = Pokemon('Deerling', {evs: {hp: 36}});
         const blizzard = Move('Blizzard');
-        const hail = Field({weather: 'Hail'});
+        const hail = Field({weather: 'Grêle'});
         const result = calculate(abomasnow, deerling, blizzard, hail);
         expect(result.desc()).toBe(
           'Lvl 55 252 SpA Choice Specs Abomasnow Blizzard vs. 36 HP / 0 SpD Deerling: 236-278 (87.4 - 102.9%) -- 25% chance to OHKO'
@@ -849,7 +849,7 @@ describe('calc', () => {
           evs: {spa: 252},
         });
         const jirachi = Pokemon('Jirachi', {item: 'Leftovers'});
-        const earthpower = Move('Earth Power');
+        const earthpower = Move('Telluriforce');
         const result = calculate(kyurem, jirachi, earthpower);
         expect(result.desc()).toBe(
           '252 SpA Choice Specs Kyurem Earth Power vs. 0 HP / 0 SpD Jirachi: 294-348 (86.2 - 102%) -- 12.5% chance to OHKO'
@@ -859,14 +859,14 @@ describe('calc', () => {
       test('Technician with Low Kick', () => {
         const ambipom = Pokemon('Ambipom', {level: 50, ability: 'Technicien'});
         const blissey = Pokemon('Blissey', {level: 50, evs: {hp: 252}});
-        let result = calculate(ambipom, blissey, Move('Low Kick'));
+        let result = calculate(ambipom, blissey, Move('Balayage'));
         expect(result.range()).toEqual([272, 320]);
         expect(result.desc()).toBe(
           '0 Atk Technician Ambipom Low Kick (60 BP) vs. 252 HP / 0 Def Blissey: 272-320 (75.1 - 88.3%) -- guaranteed 2HKO'
         );
 
         const aggron = Pokemon('Aggron', {level: 50, evs: {hp: 252}});
-        result = calculate(ambipom, aggron, Move('Low Kick'));
+        result = calculate(ambipom, aggron, Move('Balayage'));
         expect(result.range()).toEqual([112, 132]);
         expect(result.desc()).toBe(
           '0 Atk Ambipom Low Kick (120 BP) vs. 252 HP / 0 Def Aggron: 112-132 (63.2 - 74.5%) -- guaranteed 2HKO'
@@ -879,19 +879,19 @@ describe('calc', () => {
         test('Général Suprême', () => {
           const kingambit = Pokemon('Kingambit', {level: 100, ability: 'Général Suprême', alliesFainted: 0});
           const aggron = Pokemon('Aggron', {level: 100});
-          let result = calculate(kingambit, aggron, Move('Iron Head'));
+          let result = calculate(kingambit, aggron, Move('Tête de Fer'));
           expect(result.range()).toEqual([67, 79]);
           expect(result.desc()).toBe(
             '0 Atk Kingambit Iron Head vs. 0 HP / 0 Def Aggron: 67-79 (23.8 - 28.1%) -- 91.2% chance to 4HKO'
           );
           kingambit.alliesFainted = 5;
-          result = calculate(kingambit, aggron, Move('Iron Head'));
+          result = calculate(kingambit, aggron, Move('Tête de Fer'));
           expect(result.range()).toEqual([100, 118]);
           expect(result.desc()).toBe(
             '0 Atk Supreme Overlord 5 allies fainted Kingambit Iron Head vs. 0 HP / 0 Def Aggron: 100-118 (35.5 - 41.9%) -- guaranteed 3HKO'
           );
           kingambit.alliesFainted = 10;
-          result = calculate(kingambit, aggron, Move('Iron Head'));
+          result = calculate(kingambit, aggron, Move('Tête de Fer'));
           expect(result.range()).toEqual([100, 118]);
           expect(result.desc()).toBe(
             '0 Atk Supreme Overlord 5 allies fainted Kingambit Iron Head vs. 0 HP / 0 Def Aggron: 100-118 (35.5 - 41.9%) -- guaranteed 3HKO'

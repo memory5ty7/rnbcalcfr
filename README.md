@@ -70,7 +70,7 @@ const result = calculate(
     nature: 'Calm',
     evs: {hp: 252, spd: 252},
   }),
-  new Move(gen, 'Focus Blast')
+  new Move(gen, 'Exploforce')
 );
 ```
 

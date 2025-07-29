@@ -72,7 +72,7 @@ export function display(
   const desc = buildDescription(rawDesc, attacker, defender);
   const damageText = `${min}-${max} (${minDisplay} - ${maxDisplay}${notation})`;
 
-  if (move.category === 'Status' && !move.named('Nature Power')) return `${desc}: ${damageText}`;
+  if (move.category === 'Status' && !move.named('Force Nature')) return `${desc}: ${damageText}`;
   const koChanceText = getKOChance(gen, attacker, defender, move, field, damage, err).text;
   return koChanceText ? `${desc}: ${damageText} -- ${koChanceText}` : `${desc}: ${damageText}`;
 }
@@ -115,7 +115,7 @@ export function getRecovery(
   let text = '';
 
   const ignoresShellBell =
-    gen.num === 3 && move.named('Doom Desire', 'Future Sight');
+    gen.num === 3 && move.named('Vœu Destructeur', 'Prescience');
   if (attacker.hasItem('Shell Bell') && !ignoresShellBell) {
     const max = Math.round(defender.maxHP() / 8);
     for (let i = 0; i < minD.length; i++) {
@@ -124,7 +124,7 @@ export function getRecovery(
     }
   }
 
-  if (move.named('G-Max Finale')) {
+  if (move.named('Cure G-Max')) {
     recovery[0] = recovery[1] = Math.round(attacker.maxHP() / 6);
   }
 

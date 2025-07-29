@@ -36,7 +36,7 @@ describe('Pokemon', function () {
             curHP: 60,
             status: 'tox',
             toxicCounter: 2,
-            moves: ['Surf', 'Rest', 'Curse', 'Sleep Talk']
+            moves: ['Surf', 'Repos', 'Malédiction', 'Blabla Dodo']
         });
         expect(p.name).toBe('Suicune');
         expect(p.types).toEqual(['Water']);
@@ -53,7 +53,7 @@ describe('Pokemon', function () {
         expect(p.evs).toEqual({ hp: 252, atk: 0, def: 252, spa: 0, spd: 4, spe: 0 });
         expect(p.boosts).toEqual({ hp: 0, atk: -1, def: 0, spa: 2, spd: 1, spe: 0 });
         expect(p.stats).toEqual({ hp: 207, atk: 85, def: 183, spa: 110, spd: 136, spe: 105 });
-        expect(p.moves).toEqual(['Surf', 'Rest', 'Curse', 'Sleep Talk']);
+        expect(p.moves).toEqual(['Surf', 'Repos', 'Malédiction', 'Blabla Dodo']);
     });
     test('gen1', function () {
         var p = new index_1.Pokemon(1, 'Tauros', {
@@ -74,17 +74,17 @@ describe('Pokemon', function () {
         expect(index_1.Pokemon.getForme(7, 'Charizard')).toBe('Charizard');
         expect(index_1.Pokemon.getForme(7, 'Charizard', 'Charizardite X')).toBe('Charizard-Mega-X');
         expect(index_1.Pokemon.getForme(7, 'Charizard', 'Charizardite Y')).toBe('Charizard-Mega-Y');
-        expect(index_1.Pokemon.getForme(7, 'Mewtwo', 'Choice Specs', 'Psystrike')).toBe('Mewtwo');
-        expect(index_1.Pokemon.getForme(7, 'Mewtwo', 'Mewtwonite X', 'Psystrike')).toBe('Mewtwo-Mega-X');
-        expect(index_1.Pokemon.getForme(7, 'Mewtwo', 'Mewtwonite Y', 'Psystrike')).toBe('Mewtwo-Mega-Y');
-        expect(index_1.Pokemon.getForme(7, 'Groudon', 'Choice Band', 'Earthquake')).toBe('Groudon');
-        expect(index_1.Pokemon.getForme(7, 'Groudon', 'Red Orb', 'Earthquake')).toBe('Groudon-Primal');
+        expect(index_1.Pokemon.getForme(7, 'Mewtwo', 'Choice Specs', 'Frappe Psy')).toBe('Mewtwo');
+        expect(index_1.Pokemon.getForme(7, 'Mewtwo', 'Mewtwonite X', 'Frappe Psy')).toBe('Mewtwo-Mega-X');
+        expect(index_1.Pokemon.getForme(7, 'Mewtwo', 'Mewtwonite Y', 'Frappe Psy')).toBe('Mewtwo-Mega-Y');
+        expect(index_1.Pokemon.getForme(7, 'Groudon', 'Choice Band', 'Séisme')).toBe('Groudon');
+        expect(index_1.Pokemon.getForme(7, 'Groudon', 'Red Orb', 'Séisme')).toBe('Groudon-Primal');
         expect(index_1.Pokemon.getForme(7, 'Kyogre', 'Choice Specs', 'Surf')).toBe('Kyogre');
         expect(index_1.Pokemon.getForme(7, 'Kyogre', 'Blue Orb', 'Surf')).toBe('Kyogre-Primal');
-        expect(index_1.Pokemon.getForme(7, 'Meloetta', 'Leftovers', 'Psychic')).toBe('Meloetta');
-        expect(index_1.Pokemon.getForme(7, 'Meloetta', 'Leftovers', 'Relic Song')).toBe('Meloetta-Pirouette');
-        expect(index_1.Pokemon.getForme(7, 'Rayquaza', undefined, 'Earthquake')).toBe('Rayquaza');
-        expect(index_1.Pokemon.getForme(7, 'Rayquaza', undefined, 'Dragon Ascent')).toBe('Rayquaza-Mega');
+        expect(index_1.Pokemon.getForme(7, 'Meloetta', 'Leftovers', 'Psyko')).toBe('Meloetta');
+        expect(index_1.Pokemon.getForme(7, 'Meloetta', 'Leftovers', 'Chant Antique')).toBe('Meloetta-Pirouette');
+        expect(index_1.Pokemon.getForme(7, 'Rayquaza', undefined, 'Séisme')).toBe('Rayquaza');
+        expect(index_1.Pokemon.getForme(7, 'Rayquaza', undefined, 'Draco-Ascension')).toBe('Rayquaza-Mega');
     });
     test('hasType', function () {
         var p = new index_1.Pokemon(7, 'Gengar');

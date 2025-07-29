@@ -361,7 +361,7 @@ describe('Adaptable', function () {
             item: 'Eviolite',
             nature: 'Calm',
             evs: { hp: 252, spd: 252 }
-        }), new adaptable_1.Move(gen, 'Focus Blast'));
+        }), new adaptable_1.Move(gen, 'Exploforce'));
         expect(result.range()).toEqual([274, 324]);
     });
 });

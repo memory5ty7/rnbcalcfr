@@ -40,7 +40,7 @@ export function calculateADV(
 
   const result = new Result(gen, attacker, defender, move, field, 0, desc);
 
-  if (move.category === 'Status' && !move.named('Nature Power')) {
+  if (move.category === 'Status' && !move.named('Force Nature')) {
     return result;
   }
 
@@ -49,12 +49,12 @@ export function calculateADV(
     return result;
   }
 
-  if (move.named('Weather Ball')) {
+  if (move.named('Ball\'Météo')) {
     move.type =
       field.hasWeather('Sun') ? 'Fire'
       : field.hasWeather('Rain') ? 'Water'
       : field.hasWeather('Sand') ? 'Rock'
-      : field.hasWeather('Hail') ? 'Ice'
+      : field.hasWeather('Grêle') ? 'Ice'
       : 'Normal';
     move.category = move.type === 'Rock' ? 'Physical' : 'Special';
     desc.weather = field.weather;
@@ -102,32 +102,32 @@ export function calculateADV(
 
   let bp = move.bp;
   switch (move.name) {
-  case 'Flail':
-  case 'Reversal':
+  case 'Gigotage':
+  case 'Contre':
     const p = Math.floor((48 * attacker.curHP()) / attacker.maxHP());
     bp = p <= 1 ? 200 : p <= 4 ? 150 : p <= 9 ? 100 : p <= 16 ? 80 : p <= 32 ? 40 : 20;
     desc.moveBP = bp;
     break;
-  case 'Eruption':
-  case 'Water Spout':
+  case 'Éruption':
+  case 'Giclédo':
     bp = Math.max(1, Math.floor((150 * attacker.curHP()) / attacker.maxHP()));
     desc.moveBP = bp;
     break;
-  case 'Low Kick':
+  case 'Balayage':
     const w = defender.weightkg;
     bp = w >= 200 ? 120 : w >= 100 ? 100 : w >= 50 ? 80 : w >= 25 ? 60 : w >= 10 ? 40 : 20;
     desc.moveBP = bp;
     break;
-  case 'Facade':
+  case 'Façade':
     if (attacker.hasStatus('par', 'psn', 'tox', 'brn')) {
       bp = move.bp * 2;
       desc.moveBP = bp;
     }
     break;
-  case 'Nature Power':
+  case 'Force Nature':
     move.category = 'Physical';
     bp = 60;
-    desc.moveName = 'Swift';
+    desc.moveName = 'Météores';
     break;
   default:
     bp = move.bp;
@@ -207,7 +207,7 @@ export function calculateADV(
     desc.attackerAbility = attacker.ability;
   }
 
-  if (move.named('Explosion', 'Self-Destruct')) {
+  if (move.named('Explosion', 'Destruction')) {
     df = Math.floor(df / 2);
   }
 
@@ -243,7 +243,7 @@ export function calculateADV(
     }
   }
 
-  if (move.named('Pursuit') && field.defenderSide.isSwitching === 'out') {
+  if (move.named('Poursuite') && field.defenderSide.isSwitching === 'out') {
     baseDamage = Math.floor(baseDamage * 2);
     desc.isSwitching = 'out';
   }
@@ -259,7 +259,7 @@ export function calculateADV(
   } else if (
     (field.hasWeather('Sun') && move.hasType('Water')) ||
     (field.hasWeather('Rain') && move.hasType('Fire')) ||
-    (move.named('Solar Beam') && field.hasWeather('Rain', 'Sand', 'Hail'))
+    (move.named('Lance-Soleil') && field.hasWeather('Rain', 'Sand', 'Grêle'))
   ) {
     baseDamage = Math.floor(baseDamage / 2);
     desc.weather = field.weather;
@@ -277,7 +277,7 @@ export function calculateADV(
     desc.isCritical = true;
   }
 
-  if (move.named('Weather Ball') && field.weather) {
+  if (move.named('Ball\'Météo') && field.weather) {
     baseDamage *= 2;
     desc.moveBP = bp * 2;
   }
