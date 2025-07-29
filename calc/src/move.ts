@@ -2,7 +2,7 @@ import * as I from './data/interface';
 import {State} from './state';
 import {toID, extend} from './util';
 
-const SPECIAL = ['Fire', 'Water', 'Grass', 'Electric', 'Ice', 'Psyko', 'Dark', 'Dragon'];
+const SPECIAL = ['Fire', 'Water', 'Grass', 'Electric', 'Ice', 'Psychic', 'Dark', 'Dragon'];
 
 export class Move implements State.Move {
   gen: I.Generation;
@@ -293,7 +293,7 @@ export function getMaxMoveName(
   if (moveType === 'Ice' && pokemonSpecies === 'Lapras-Gmax') return 'Résonance G-Max';
   if (moveType === 'Flying' && pokemonSpecies === 'Corviknight-Gmax') return 'Rafale G-Max';
   if (moveType === 'Dragon' && pokemonSpecies === 'Duraludon-Gmax') return 'Usure G-Max';
-  if (moveType === 'Psyko' && pokemonSpecies === 'Orbeetle-Gmax') return 'Ondes G-Max';
+  if (moveType === 'Psychic' && pokemonSpecies === 'Orbeetle-Gmax') return 'Ondes G-Max';
   if (moveType === 'Rock' && pokemonSpecies === 'Coalossal-Gmax') return 'Fournaise G-Max';
   if (moveType === 'Ground' && pokemonSpecies === 'Sandaconda-Gmax') return 'Enlisement G-Max';
   if (moveType === 'Dark' && pokemonSpecies === 'Grimmsnarl-Gmax') return 'Torpeur G-Max';

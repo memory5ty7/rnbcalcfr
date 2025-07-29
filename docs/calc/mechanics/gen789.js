@@ -95,7 +95,7 @@ function calculateSMSSSV(gen, attacker, defender, move, field) {
             field.hasTerrain('Electric') ? 'Electric'
                 : field.hasTerrain('Grassy') ? 'Grass'
                     : field.hasTerrain('Misty') ? 'Fairy'
-                        : field.hasTerrain('Psyko') ? 'Psyko'
+                        : field.hasTerrain('Psychic') ? 'Psychic'
                             : 'Normal';
         desc.terrain = field.terrain;
         desc.moveType = type;
@@ -231,7 +231,7 @@ function calculateSMSSSV(gen, attacker, defender, move, field) {
         desc.defenderItem = defender.item;
         return result;
     }
-    if (move.priority > 0 && field.hasTerrain('Psyko') && (0, util_2.isGrounded)(defender, field)) {
+    if (move.priority > 0 && field.hasTerrain('Psychic') && (0, util_2.isGrounded)(defender, field)) {
         desc.terrain = field.terrain;
         return result;
     }
@@ -565,7 +565,7 @@ function calculateBasePowerSMSSSV(gen, attacker, defender, move, field, hasAteAb
                     basePower = 95;
                     desc.moveName = 'Pouvoir Lunaire';
                     break;
-                case 'Psyko':
+                case 'Psychic':
                     basePower = 90;
                     desc.moveName = 'Psyko';
                     break;
@@ -639,7 +639,7 @@ function calculateBPModsSMSSSV(gen, attacker, defender, move, field, desc, baseP
         bpMods.push(8192);
         desc.moveBP = basePower * 2;
     }
-    else if (move.named('Vaste Pouvoir') && (0, util_2.isGrounded)(attacker, field) && field.hasTerrain('Psyko')) {
+    else if (move.named('Vaste Pouvoir') && (0, util_2.isGrounded)(attacker, field) && field.hasTerrain('Psychic')) {
         move.target = 'allAdjacentFoes';
         bpMods.push(6144);
         desc.moveBP = basePower * 1.5;
@@ -674,7 +674,7 @@ function calculateBPModsSMSSSV(gen, attacker, defender, move, field, desc, baseP
     if ((0, util_2.isGrounded)(attacker, field)) {
         if ((field.hasTerrain('Electric') && move.hasType('Electric')) ||
             (field.hasTerrain('Grassy') && move.hasType('Grass')) ||
-            (field.hasTerrain('Psyko') && move.hasType('Psyko'))) {
+            (field.hasTerrain('Psychic') && move.hasType('Psychic'))) {
             bpMods.push(terrainMultiplier);
             desc.terrain = field.terrain;
         }

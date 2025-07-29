@@ -41,7 +41,7 @@ function getItemBoostType(item) {
         case 'Mind Plate':
         case 'Odd Incense':
         case 'Twisted Spoon':
-            return 'Psyko';
+            return 'Psychic';
         case 'Pixie Plate':
             return 'Fairy';
         case 'Sky Plate':
@@ -97,7 +97,7 @@ function getBerryResistType(berry) {
         case 'Coba Berry':
             return 'Flying';
         case 'Payapa Berry':
-            return 'Psyko';
+            return 'Psychic';
         case 'Tanga Berry':
             return 'Bug';
         case 'Charti Berry':

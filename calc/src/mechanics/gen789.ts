@@ -168,7 +168,7 @@ export function calculateSMSSSV(
       field.hasTerrain('Electric') ? 'Electric'
       : field.hasTerrain('Grassy') ? 'Grass'
       : field.hasTerrain('Misty') ? 'Fairy'
-      : field.hasTerrain('Psyko') ? 'Psyko'
+      : field.hasTerrain('Psychic') ? 'Psychic'
       : 'Normal';
     desc.terrain = field.terrain;
     desc.moveType = type;
@@ -345,7 +345,7 @@ export function calculateSMSSSV(
     return result;
   }
 
-  if (move.priority > 0 && field.hasTerrain('Psyko') && isGrounded(defender, field)) {
+  if (move.priority > 0 && field.hasTerrain('Psychic') && isGrounded(defender, field)) {
     desc.terrain = field.terrain;
     return result;
   }
@@ -755,7 +755,7 @@ export function calculateBasePowerSMSSSV(
       basePower = 95;
       desc.moveName = 'Pouvoir Lunaire';
       break;
-    case 'Psyko':
+    case 'Psychic':
       basePower = 90;
       desc.moveName = 'Psyko';
       break;

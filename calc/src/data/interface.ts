@@ -14,7 +14,7 @@ export type SpeciesName = string & As<'SpeciesName'>;
 export type StatusName = 'slp' | 'psn' | 'brn' | 'frz' | 'par' | 'tox';
 
 export type GameType = 'Singles' | 'Doubles';
-export type Terrain = 'Electric' | 'Grassy' | 'Psyko' | 'Misty';
+export type Terrain = 'Electric' | 'Grassy' | 'Psychic' | 'Misty';
 export type Weather =
   | 'Sand' | 'Sun' | 'Rain' | 'Grêle' | 'Snow' | 'Harsh Sunshine' | 'Heavy Rain' | 'Strong Winds';
 
@@ -27,7 +27,7 @@ export type NatureName =
 
 export type TypeName =
   'Normal' | 'Fighting' | 'Flying' | 'Poison' | 'Ground' | 'Rock' | 'Bug' | 'Ghost' | 'Steel' |
-  'Fire' | 'Water' | 'Grass' | 'Electric' | 'Psyko' | 'Ice' | 'Dragon' | 'Dark' | 'Fairy' | '???';
+  'Fire' | 'Water' | 'Grass' | 'Electric' | 'Psychic' | 'Ice' | 'Dragon' | 'Dark' | 'Fairy' | '???';
 
 export type MoveCategory = 'Physical' | 'Special' | 'Status';
 

@@ -68,7 +68,7 @@ exports.__esModule = true;
 var util_1 = require("../util");
 var RBY = {
     Abra: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 25, at: 20, df: 15, sp: 90, sl: 105 },
         weightkg: 19.5,
         nfe: true
@@ -79,7 +79,7 @@ var RBY = {
         weightkg: 59
     },
     Alakazam: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 55, at: 50, df: 45, sp: 120, sl: 135 },
         weightkg: 48
     },
@@ -208,7 +208,7 @@ var RBY = {
         nfe: true
     },
     Drowzee: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 60, at: 48, df: 45, sp: 42, sl: 90 },
         weightkg: 32.4,
         nfe: true
@@ -241,13 +241,13 @@ var RBY = {
         weightkg: 66.6
     },
     Exeggcute: {
-        types: ['Grass', 'Psyko'],
+        types: ['Grass', 'Psychic'],
         bs: { hp: 60, at: 40, df: 80, sp: 40, sl: 60 },
         weightkg: 2.5,
         nfe: true
     },
     Exeggutor: {
-        types: ['Grass', 'Psyko'],
+        types: ['Grass', 'Psychic'],
         bs: { hp: 95, at: 95, df: 85, sp: 55, sl: 125 },
         weightkg: 120
     },
@@ -348,7 +348,7 @@ var RBY = {
         nfe: true
     },
     Hypno: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 85, at: 73, df: 70, sp: 67, sl: 115 },
         weightkg: 75.6
     },
@@ -370,7 +370,7 @@ var RBY = {
         weightkg: 24.5
     },
     Jynx: {
-        types: ['Ice', 'Psyko'],
+        types: ['Ice', 'Psychic'],
         bs: { hp: 65, at: 50, df: 35, sp: 95, sl: 95 },
         weightkg: 40.6
     },
@@ -386,7 +386,7 @@ var RBY = {
         weightkg: 40.5
     },
     Kadabra: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 40, at: 35, df: 30, sp: 105, sl: 120 },
         weightkg: 56.5,
         nfe: true
@@ -484,12 +484,12 @@ var RBY = {
         nfe: true
     },
     Mew: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 100, at: 100, df: 100, sp: 100, sl: 100 },
         weightkg: 4
     },
     Mewtwo: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 106, at: 110, df: 90, sp: 130, sl: 154 },
         weightkg: 122
     },
@@ -499,7 +499,7 @@ var RBY = {
         weightkg: 60
     },
     'Mr. Mime': {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 40, at: 45, df: 65, sp: 90, sl: 100 },
         weightkg: 54.5
     },
@@ -699,12 +699,12 @@ var RBY = {
         nfe: true
     },
     Slowbro: {
-        types: ['Water', 'Psyko'],
+        types: ['Water', 'Psychic'],
         bs: { hp: 95, at: 75, df: 110, sp: 30, sl: 80 },
         weightkg: 78.5
     },
     Slowpoke: {
-        types: ['Water', 'Psyko'],
+        types: ['Water', 'Psychic'],
         bs: { hp: 90, at: 65, df: 65, sp: 15, sl: 40 },
         weightkg: 36,
         nfe: true
@@ -727,7 +727,7 @@ var RBY = {
         nfe: true
     },
     Starmie: {
-        types: ['Water', 'Psyko'],
+        types: ['Water', 'Psychic'],
         bs: { hp: 60, at: 75, df: 85, sp: 115, sl: 100 },
         weightkg: 80
     },
@@ -1026,7 +1026,7 @@ var GSC_PATCH = {
         weightkg: 46.8
     },
     Celebi: {
-        types: ['Psyko', 'Grass'],
+        types: ['Psychic', 'Grass'],
         bs: { hp: 100, at: 100, df: 100, sa: 100, sd: 100, sp: 100 },
         weightkg: 5,
         gender: 'N'
@@ -1099,7 +1099,7 @@ var GSC_PATCH = {
         gender: 'N'
     },
     Espeon: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 65, at: 65, df: 60, sa: 130, sd: 95, sp: 110 },
         weightkg: 26.5
     },
@@ -1121,7 +1121,7 @@ var GSC_PATCH = {
     },
     Furret: { types: ['Normal'], bs: { hp: 85, at: 76, df: 64, sa: 45, sd: 55, sp: 90 }, weightkg: 32.5 },
     Girafarig: {
-        types: ['Normal', 'Psyko'],
+        types: ['Normal', 'Psychic'],
         bs: { hp: 70, at: 80, df: 65, sa: 90, sd: 65, sp: 85 },
         weightkg: 41.5
     },
@@ -1213,7 +1213,7 @@ var GSC_PATCH = {
         nfe: true
     },
     Lugia: {
-        types: ['Psyko', 'Flying'],
+        types: ['Psychic', 'Flying'],
         bs: { hp: 106, at: 90, df: 130, sa: 90, sd: 154, sp: 110 },
         weightkg: 216,
         gender: 'N'
@@ -1267,7 +1267,7 @@ var GSC_PATCH = {
         weightkg: 2.1
     },
     Natu: {
-        types: ['Psyko', 'Flying'],
+        types: ['Psychic', 'Flying'],
         bs: { hp: 40, at: 50, df: 45, sa: 70, sd: 45, sp: 70 },
         weightkg: 2,
         nfe: true
@@ -1378,7 +1378,7 @@ var GSC_PATCH = {
         nfe: true
     },
     Slowking: {
-        types: ['Water', 'Psyko'],
+        types: ['Water', 'Psychic'],
         bs: { hp: 95, at: 75, df: 80, sa: 100, sd: 110, sp: 30 },
         weightkg: 79.5
     },
@@ -1390,7 +1390,7 @@ var GSC_PATCH = {
     },
     Smeargle: { types: ['Normal'], bs: { hp: 55, at: 20, df: 35, sa: 20, sd: 45, sp: 75 }, weightkg: 58 },
     Smoochum: {
-        types: ['Ice', 'Psyko'],
+        types: ['Ice', 'Psychic'],
         bs: { hp: 45, at: 30, df: 15, sa: 85, sd: 65, sp: 65 },
         weightkg: 6,
         nfe: true
@@ -1491,7 +1491,7 @@ var GSC_PATCH = {
     },
     Umbreon: { types: ['Dark'], bs: { hp: 95, at: 65, df: 110, sa: 60, sd: 130, sp: 65 }, weightkg: 27 },
     Unown: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
         weightkg: 5,
         gender: 'N'
@@ -1502,7 +1502,7 @@ var GSC_PATCH = {
         weightkg: 125.8
     },
     Wobbuffet: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 190, at: 33, df: 58, sa: 33, sd: 58, sp: 33 },
         weightkg: 28.5
     },
@@ -1513,7 +1513,7 @@ var GSC_PATCH = {
         nfe: true
     },
     Xatu: {
-        types: ['Psyko', 'Flying'],
+        types: ['Psychic', 'Flying'],
         bs: { hp: 65, at: 75, df: 70, sa: 95, sd: 70, sp: 95 },
         weightkg: 15
     },
@@ -1829,7 +1829,7 @@ var ADV_PATCH = {
         abilities: { 0: 'Tête de Roc' }
     },
     Baltoy: {
-        types: ['Ground', 'Psyko'],
+        types: ['Ground', 'Psychic'],
         bs: { hp: 40, at: 40, df: 55, sa: 40, sd: 70, sp: 55 },
         weightkg: 21.5,
         abilities: { 0: 'Lévitation' },
@@ -1856,7 +1856,7 @@ var ADV_PATCH = {
         abilities: { 0: 'Essaim' }
     },
     Beldum: {
-        types: ['Steel', 'Psyko'],
+        types: ['Steel', 'Psychic'],
         bs: { hp: 40, at: 55, df: 80, sa: 35, sd: 60, sp: 30 },
         weightkg: 95.2,
         nfe: true,
@@ -1937,7 +1937,7 @@ var ADV_PATCH = {
         baseSpecies: 'Castform'
     },
     Chimecho: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 65, at: 50, df: 70, sa: 95, sd: 80, sp: 65 },
         weightkg: 1,
         abilities: { 0: 'Lévitation' }
@@ -1950,7 +1950,7 @@ var ADV_PATCH = {
         abilities: { 0: 'Coque Armure' }
     },
     Claydol: {
-        types: ['Ground', 'Psyko'],
+        types: ['Ground', 'Psychic'],
         bs: { hp: 60, at: 70, df: 105, sa: 70, sd: 120, sp: 75 },
         weightkg: 108,
         abilities: { 0: 'Lévitation' },
@@ -1989,7 +1989,7 @@ var ADV_PATCH = {
         abilities: { 0: 'Joli Sourire' }
     },
     Deoxys: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 50, at: 150, df: 50, sa: 150, sd: 50, sp: 150 },
         weightkg: 60.8,
         abilities: { 0: 'Pression' },
@@ -1997,7 +1997,7 @@ var ADV_PATCH = {
         otherFormes: ['Deoxys-Attack', 'Deoxys-Defense', 'Deoxys-Speed']
     },
     'Deoxys-Attack': {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 50, at: 180, df: 20, sa: 180, sd: 20, sp: 150 },
         weightkg: 60.8,
         abilities: { 0: 'Pression' },
@@ -2005,7 +2005,7 @@ var ADV_PATCH = {
         baseSpecies: 'Deoxys'
     },
     'Deoxys-Defense': {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 50, at: 70, df: 160, sa: 70, sd: 160, sp: 90 },
         weightkg: 60.8,
         abilities: { 0: 'Pression' },
@@ -2013,7 +2013,7 @@ var ADV_PATCH = {
         baseSpecies: 'Deoxys'
     },
     'Deoxys-Speed': {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 50, at: 95, df: 90, sa: 95, sd: 90, sp: 180 },
         weightkg: 60.8,
         abilities: { 0: 'Pression' },
@@ -2066,7 +2066,7 @@ var ADV_PATCH = {
         abilities: { 0: 'Lévitation' }
     },
     Gardevoir: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 68, at: 65, df: 65, sa: 125, sd: 115, sp: 80 },
         weightkg: 48.4,
         abilities: { 0: 'Synchro' }
@@ -2098,7 +2098,7 @@ var ADV_PATCH = {
         abilities: { 0: 'Engrais' }
     },
     Grumpig: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 80, at: 45, df: 65, sa: 90, sd: 110, sp: 80 },
         weightkg: 71.5,
         abilities: { 0: 'Isograisse' }
@@ -2129,7 +2129,7 @@ var ADV_PATCH = {
         weightkg: 17.7
     },
     Jirachi: {
-        types: ['Steel', 'Psyko'],
+        types: ['Steel', 'Psychic'],
         bs: { hp: 100, at: 100, df: 100, sa: 100, sd: 100, sp: 100 },
         weightkg: 1.1,
         abilities: { 0: 'Sérénité' },
@@ -2142,7 +2142,7 @@ var ADV_PATCH = {
         abilities: { 0: 'Homochromie' }
     },
     Kirlia: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 38, at: 35, df: 35, sa: 65, sd: 55, sp: 50 },
         weightkg: 20.2,
         nfe: true,
@@ -2163,13 +2163,13 @@ var ADV_PATCH = {
         abilities: { 0: 'Fermeté' }
     },
     Latias: {
-        types: ['Dragon', 'Psyko'],
+        types: ['Dragon', 'Psychic'],
         bs: { hp: 80, at: 80, df: 90, sa: 110, sd: 130, sp: 110 },
         weightkg: 40,
         abilities: { 0: 'Lévitation' }
     },
     Latios: {
-        types: ['Dragon', 'Psyko'],
+        types: ['Dragon', 'Psychic'],
         bs: { hp: 80, at: 90, df: 80, sa: 130, sd: 110, sp: 110 },
         weightkg: 60,
         abilities: { 0: 'Lévitation' }
@@ -2215,7 +2215,7 @@ var ADV_PATCH = {
         abilities: { 0: 'Glissade' }
     },
     Lunatone: {
-        types: ['Rock', 'Psyko'],
+        types: ['Rock', 'Psychic'],
         bs: { hp: 70, at: 55, df: 65, sa: 95, sd: 85, sp: 70 },
         weightkg: 168,
         abilities: { 0: 'Lévitation' },
@@ -2260,27 +2260,27 @@ var ADV_PATCH = {
         abilities: { 0: 'Hyper Cutter' }
     },
     Medicham: {
-        types: ['Fighting', 'Psyko'],
+        types: ['Fighting', 'Psychic'],
         bs: { hp: 60, at: 60, df: 75, sa: 60, sd: 75, sp: 80 },
         weightkg: 31.5,
         abilities: { 0: 'Force Pure' }
     },
     Meditite: {
-        types: ['Fighting', 'Psyko'],
+        types: ['Fighting', 'Psychic'],
         bs: { hp: 30, at: 40, df: 55, sa: 40, sd: 55, sp: 60 },
         weightkg: 11.2,
         nfe: true,
         abilities: { 0: 'Force Pure' }
     },
     Metagross: {
-        types: ['Steel', 'Psyko'],
+        types: ['Steel', 'Psychic'],
         bs: { hp: 80, at: 135, df: 130, sa: 95, sd: 90, sp: 70 },
         weightkg: 550,
         gender: 'N',
         abilities: { 0: 'Corps Sain' }
     },
     Metang: {
-        types: ['Steel', 'Psyko'],
+        types: ['Steel', 'Psychic'],
         bs: { hp: 60, at: 75, df: 100, sa: 55, sd: 80, sp: 50 },
         weightkg: 202.5,
         nfe: true,
@@ -2365,7 +2365,7 @@ var ADV_PATCH = {
         abilities: { 0: 'Fuite' }
     },
     Ralts: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 28, at: 25, df: 25, sa: 45, sd: 35, sp: 40 },
         weightkg: 6.6,
         nfe: true,
@@ -2524,7 +2524,7 @@ var ADV_PATCH = {
         abilities: { 0: 'Attention' }
     },
     Solrock: {
-        types: ['Rock', 'Psyko'],
+        types: ['Rock', 'Psychic'],
         bs: { hp: 70, at: 95, df: 85, sa: 55, sd: 65, sp: 70 },
         weightkg: 154,
         abilities: { 0: 'Lévitation' },
@@ -2544,7 +2544,7 @@ var ADV_PATCH = {
         abilities: { 0: 'Tempo Perso' }
     },
     Spoink: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 60, at: 25, df: 35, sa: 70, sd: 80, sp: 60 },
         weightkg: 30.6,
         nfe: true,
@@ -2689,7 +2689,7 @@ var ADV_PATCH = {
         abilities: { 0: 'Écran Poudre' }
     },
     Wynaut: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 95, at: 23, df: 48, sa: 23, sd: 48, sp: 23 },
         weightkg: 14,
         nfe: true,
@@ -2864,7 +2864,7 @@ var DPP_PATCH = {
         baseSpecies: 'Arceus'
     },
     'Arceus-Psychic': {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 120, at: 120, df: 120, sa: 120, sd: 120, sp: 120 },
         weightkg: 320,
         abilities: { 0: 'Multi-Type' },
@@ -2902,7 +2902,7 @@ var DPP_PATCH = {
         abilities: { 0: 'Inconscient' }
     },
     Azelf: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 75, at: 125, df: 70, sa: 125, sd: 70, sp: 115 },
         weightkg: 0.3,
         abilities: { 0: 'Lévitation' },
@@ -2942,14 +2942,14 @@ var DPP_PATCH = {
         abilities: { 0: 'Délestage' }
     },
     Bronzong: {
-        types: ['Steel', 'Psyko'],
+        types: ['Steel', 'Psychic'],
         bs: { hp: 67, at: 89, df: 116, sa: 79, sd: 116, sp: 33 },
         weightkg: 187,
         gender: 'N',
         abilities: { 0: 'Lévitation' }
     },
     Bronzor: {
-        types: ['Steel', 'Psyko'],
+        types: ['Steel', 'Psychic'],
         bs: { hp: 57, at: 24, df: 86, sa: 24, sd: 86, sp: 23 },
         weightkg: 60.5,
         nfe: true,
@@ -3025,7 +3025,7 @@ var DPP_PATCH = {
         abilities: { 0: 'Brasier' }
     },
     Chingling: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 45, at: 30, df: 50, sa: 65, sd: 50, sp: 45 },
         weightkg: 0.6,
         abilities: { 0: 'Lévitation' },
@@ -3052,7 +3052,7 @@ var DPP_PATCH = {
         abilities: { 0: 'Brise Moule' }
     },
     Cresselia: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 120, at: 70, df: 120, sa: 75, sd: 130, sp: 85 },
         weightkg: 85.6,
         abilities: { 0: 'Lévitation' }
@@ -3182,7 +3182,7 @@ var DPP_PATCH = {
         abilities: { 0: 'Voile Sable' }
     },
     Gallade: {
-        types: ['Psyko', 'Fighting'],
+        types: ['Psychic', 'Fighting'],
         bs: { hp: 68, at: 125, df: 65, sa: 65, sd: 115, sp: 80 },
         weightkg: 52,
         abilities: { 0: 'Impassible' }
@@ -3388,14 +3388,14 @@ var DPP_PATCH = {
         abilities: { 0: 'Glissade' }
     },
     Mesprit: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 80, at: 105, df: 105, sa: 105, sd: 105, sp: 80 },
         weightkg: 0.3,
         abilities: { 0: 'Lévitation' },
         gender: 'N'
     },
     'Mime Jr.': {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 20, at: 25, df: 45, sa: 70, sd: 90, sp: 60 },
         weightkg: 13,
         nfe: true,
@@ -3765,7 +3765,7 @@ var DPP_PATCH = {
         abilities: { 0: 'Engrais' }
     },
     Uxie: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 75, at: 75, df: 130, sa: 75, sd: 130, sp: 95 },
         weightkg: 0.3,
         abilities: { 0: 'Lévitation' },
@@ -3863,7 +3863,7 @@ var BW_PATCH = {
         abilities: { 0: 'Défaitiste' }
     },
     Argalis: {
-        types: ['Bug', 'Psyko'],
+        types: ['Bug', 'Psychic'],
         bs: { hp: 60, at: 90, df: 89, sa: 87, sd: 40, sp: 54 },
         weightkg: 341.4,
         nfe: true,
@@ -3876,7 +3876,7 @@ var BW_PATCH = {
         abilities: { 0: 'Cœur Soin' }
     },
     Aurumoth: {
-        types: ['Bug', 'Psyko'],
+        types: ['Bug', 'Psychic'],
         bs: { hp: 110, at: 120, df: 99, sa: 117, sd: 60, sp: 94 },
         weightkg: 193,
         abilities: { 0: 'Armurouillée' }
@@ -3909,7 +3909,7 @@ var BW_PATCH = {
         abilities: { 0: 'Rideau Neige' }
     },
     Beheeyem: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 75, at: 75, df: 75, sa: 125, sd: 95, sp: 40 },
         weightkg: 34.5,
         abilities: { 0: 'Télépathe' }
@@ -4031,7 +4031,7 @@ var BW_PATCH = {
         abilities: { 0: 'Rideau Neige' }
     },
     Cupra: {
-        types: ['Bug', 'Psyko'],
+        types: ['Bug', 'Psychic'],
         bs: { hp: 50, at: 60, df: 49, sa: 67, sd: 30, sp: 44 },
         weightkg: 4.8,
         nfe: true,
@@ -4045,7 +4045,7 @@ var BW_PATCH = {
         otherFormes: ['Darmanitan-Zen']
     },
     'Darmanitan-Zen': {
-        types: ['Fire', 'Psyko'],
+        types: ['Fire', 'Psychic'],
         bs: { hp: 105, at: 30, df: 105, sa: 140, sd: 105, sp: 55 },
         weightkg: 92.9,
         baseSpecies: 'Darmanitan',
@@ -4100,7 +4100,7 @@ var BW_PATCH = {
         abilities: { 0: 'Regard Vif' }
     },
     Duosion: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 65, at: 40, df: 50, sa: 125, sd: 60, sp: 30 },
         weightkg: 8,
         nfe: true,
@@ -4133,7 +4133,7 @@ var BW_PATCH = {
         abilities: { 0: 'Lévitation' }
     },
     Elgyem: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 55, at: 55, df: 55, sa: 85, sd: 55, sp: 30 },
         weightkg: 9,
         nfe: true,
@@ -4271,20 +4271,20 @@ var BW_PATCH = {
         abilities: { 0: 'Poing de Fer' }
     },
     Gothita: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 45, at: 30, df: 50, sa: 55, sd: 65, sp: 45 },
         weightkg: 5.8,
         nfe: true,
         abilities: { 0: 'Fouille' }
     },
     Gothitelle: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 70, at: 55, df: 95, sa: 95, sd: 110, sp: 65 },
         weightkg: 44,
         abilities: { 0: 'Fouille' }
     },
     Gothorita: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 60, at: 45, df: 70, sa: 75, sd: 85, sp: 55 },
         weightkg: 18,
         nfe: true,
@@ -4497,7 +4497,7 @@ var BW_PATCH = {
         abilities: { 0: 'Absorbe-Eau' }
     },
     Meloetta: {
-        types: ['Normal', 'Psyko'],
+        types: ['Normal', 'Psychic'],
         bs: { hp: 100, at: 77, df: 77, sa: 128, sd: 128, sp: 90 },
         weightkg: 6.5,
         abilities: { 0: 'Sérénité' },
@@ -4539,14 +4539,14 @@ var BW_PATCH = {
         abilities: { 0: 'Peau Sèche' }
     },
     Munna: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 76, at: 25, df: 45, sa: 67, sd: 55, sp: 24 },
         weightkg: 23.3,
         nfe: true,
         abilities: { 0: 'Prédiction' }
     },
     Musharna: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 116, at: 55, df: 85, sa: 107, sd: 95, sp: 29 },
         weightkg: 60.5,
         abilities: { 0: 'Prédiction' }
@@ -4649,7 +4649,7 @@ var BW_PATCH = {
         gender: 'N'
     },
     Reuniclus: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 110, at: 65, df: 75, sa: 125, sd: 85, sp: 30 },
         weightkg: 20.1,
         abilities: { 0: 'Envelocape' }
@@ -4753,7 +4753,7 @@ var BW_PATCH = {
         abilities: { 0: 'Hydratation' }
     },
     Sigilyph: {
-        types: ['Psyko', 'Flying'],
+        types: ['Psychic', 'Flying'],
         bs: { hp: 72, at: 58, df: 80, sa: 103, sd: 80, sp: 97 },
         weightkg: 14,
         abilities: { 0: 'Peau Miracle' }
@@ -4784,7 +4784,7 @@ var BW_PATCH = {
         abilities: { 0: 'Engrais' }
     },
     Solosis: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 45, at: 30, df: 40, sa: 105, sd: 50, sp: 20 },
         weightkg: 1,
         nfe: true,
@@ -4816,7 +4816,7 @@ var BW_PATCH = {
         abilities: { 0: 'Regard Vif' }
     },
     Swoobat: {
-        types: ['Psyko', 'Flying'],
+        types: ['Psychic', 'Flying'],
         bs: { hp: 67, at: 57, df: 55, sa: 77, sd: 55, sp: 114 },
         weightkg: 10.5,
         abilities: { 0: 'Inconscient' }
@@ -4951,7 +4951,7 @@ var BW_PATCH = {
         abilities: { 0: 'Point Poison' }
     },
     Victini: {
-        types: ['Psyko', 'Fire'],
+        types: ['Psychic', 'Fire'],
         bs: { hp: 100, at: 100, df: 100, sa: 100, sd: 100, sp: 100 },
         weightkg: 4,
         abilities: { 0: 'Victorieux' },
@@ -4997,7 +4997,7 @@ var BW_PATCH = {
         abilities: { 0: 'Point Poison' }
     },
     Woobat: {
-        types: ['Psyko', 'Flying'],
+        types: ['Psychic', 'Flying'],
         bs: { hp: 55, at: 45, df: 43, sa: 55, sd: 43, sp: 72 },
         weightkg: 2.1,
         nfe: true,
@@ -5074,7 +5074,7 @@ var XY_PATCH = {
     Exploud: { bs: { sd: 73 } },
     Gallade: { otherFormes: ['Gallade-Mega'] },
     Garchomp: { otherFormes: ['Garchomp-Mega'] },
-    Gardevoir: { types: ['Psyko', 'Fairy'], otherFormes: ['Gardevoir-Mega'] },
+    Gardevoir: { types: ['Psychic', 'Fairy'], otherFormes: ['Gardevoir-Mega'] },
     Gengar: { otherFormes: ['Gengar-Mega'] },
     Gigalith: { bs: { sd: 80 } },
     Glalie: { otherFormes: ['Glalie-Mega'] },
@@ -5088,7 +5088,7 @@ var XY_PATCH = {
     Jigglypuff: { types: ['Normal', 'Fairy'] },
     Jumpluff: { bs: { sd: 95 } },
     Kangaskhan: { otherFormes: ['Kangaskhan-Mega'] },
-    Kirlia: { types: ['Psyko', 'Fairy'] },
+    Kirlia: { types: ['Psychic', 'Fairy'] },
     Krookodile: { bs: { df: 80 } },
     Kyogre: { otherFormes: ['Kyogre-Primal'] },
     Latias: { otherFormes: ['Latias-Mega'] },
@@ -5102,8 +5102,8 @@ var XY_PATCH = {
     Medicham: { otherFormes: ['Medicham-Mega'] },
     Metagross: { otherFormes: ['Metagross-Mega'] },
     Mewtwo: { otherFormes: ['Mewtwo-Mega-X', 'Mewtwo-Mega-Y'] },
-    'Mime Jr.': { types: ['Psyko', 'Fairy'] },
-    'Mr. Mime': { types: ['Psyko', 'Fairy'] },
+    'Mime Jr.': { types: ['Psychic', 'Fairy'] },
+    'Mr. Mime': { types: ['Psychic', 'Fairy'] },
     Nidoking: { bs: { at: 102 } },
     Nidoqueen: { bs: { at: 92 } },
     Pidgeot: { bs: { sp: 101 }, otherFormes: ['Pidgeot-Mega'] },
@@ -5121,7 +5121,7 @@ var XY_PATCH = {
     Pinsir: { otherFormes: ['Pinsir-Mega'] },
     Poliwrath: { bs: { at: 95 } },
     Raichu: { bs: { sp: 110 } },
-    Ralts: { types: ['Psyko', 'Fairy'] },
+    Ralts: { types: ['Psychic', 'Fairy'] },
     Rayquaza: { otherFormes: ['Rayquaza-Mega'] },
     Roserade: { bs: { df: 65 } },
     Sableye: { otherFormes: ['Sableye-Mega'] },
@@ -5297,7 +5297,7 @@ var XY_PATCH = {
         abilities: { 0: 'Bajoues' }
     },
     Delphox: {
-        types: ['Fire', 'Psyko'],
+        types: ['Fire', 'Psychic'],
         bs: { hp: 75, at: 69, df: 72, sa: 114, sd: 100, sp: 104 },
         weightkg: 39,
         abilities: { 0: 'Brasier' }
@@ -5322,7 +5322,7 @@ var XY_PATCH = {
         abilities: { 0: 'Point Poison' }
     },
     Espurr: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 62, at: 48, df: 54, sa: 63, sd: 60, sp: 68 },
         weightkg: 3.5,
         nfe: true,
@@ -5484,7 +5484,7 @@ var XY_PATCH = {
         nfe: true
     },
     Hoopa: {
-        types: ['Psyko', 'Ghost'],
+        types: ['Psychic', 'Ghost'],
         bs: { hp: 80, at: 110, df: 60, sa: 150, sd: 130, sp: 70 },
         weightkg: 9,
         gender: 'N',
@@ -5492,7 +5492,7 @@ var XY_PATCH = {
         otherFormes: ['Hoopa-Unbound']
     },
     'Hoopa-Unbound': {
-        types: ['Psyko', 'Dark'],
+        types: ['Psychic', 'Dark'],
         bs: { hp: 80, at: 160, df: 60, sa: 170, sd: 130, sp: 80 },
         weightkg: 490,
         gender: 'N',
@@ -5500,7 +5500,7 @@ var XY_PATCH = {
         baseSpecies: 'Hoopa'
     },
     Inkay: {
-        types: ['Dark', 'Psyko'],
+        types: ['Dark', 'Psychic'],
         bs: { hp: 53, at: 54, df: 53, sa: 37, sd: 46, sp: 45 },
         weightkg: 3.5,
         nfe: true,
@@ -5526,7 +5526,7 @@ var XY_PATCH = {
         abilities: { 0: 'Rivalité' }
     },
     Malamar: {
-        types: ['Dark', 'Psyko'],
+        types: ['Dark', 'Psychic'],
         bs: { hp: 86, at: 92, df: 88, sa: 68, sd: 75, sp: 73 },
         weightkg: 47,
         abilities: { 0: 'Contestation' }
@@ -5560,7 +5560,7 @@ var XY_PATCH = {
         baseSpecies: 'Aggron'
     },
     'Alakazam-Mega': {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 55, at: 50, df: 65, sa: 175, sd: 95, sp: 150 },
         weightkg: 48,
         abilities: { 0: 'Calque' },
@@ -5652,7 +5652,7 @@ var XY_PATCH = {
         gender: 'N'
     },
     'Gallade-Mega': {
-        types: ['Psyko', 'Fighting'],
+        types: ['Psychic', 'Fighting'],
         bs: { hp: 68, at: 165, df: 95, sa: 65, sd: 115, sp: 110 },
         weightkg: 56.4,
         abilities: { 0: 'Attention' },
@@ -5666,7 +5666,7 @@ var XY_PATCH = {
         baseSpecies: 'Garchomp'
     },
     'Gardevoir-Mega': {
-        types: ['Psyko', 'Fairy'],
+        types: ['Psychic', 'Fairy'],
         bs: { hp: 68, at: 85, df: 65, sa: 165, sd: 135, sp: 100 },
         weightkg: 48.4,
         abilities: { 0: 'Peau Féérique' },
@@ -5715,14 +5715,14 @@ var XY_PATCH = {
         baseSpecies: 'Kangaskhan'
     },
     'Latias-Mega': {
-        types: ['Dragon', 'Psyko'],
+        types: ['Dragon', 'Psychic'],
         bs: { hp: 80, at: 100, df: 120, sa: 140, sd: 150, sp: 110 },
         weightkg: 52,
         abilities: { 0: 'Lévitation' },
         baseSpecies: 'Latias'
     },
     'Latios-Mega': {
-        types: ['Dragon', 'Psyko'],
+        types: ['Dragon', 'Psychic'],
         bs: { hp: 80, at: 130, df: 100, sa: 160, sd: 120, sp: 110 },
         weightkg: 70,
         abilities: { 0: 'Lévitation' },
@@ -5757,14 +5757,14 @@ var XY_PATCH = {
         baseSpecies: 'Mawile'
     },
     'Medicham-Mega': {
-        types: ['Fighting', 'Psyko'],
+        types: ['Fighting', 'Psychic'],
         bs: { hp: 60, at: 100, df: 85, sa: 80, sd: 85, sp: 100 },
         weightkg: 31.5,
         abilities: { 0: 'Force Pure' },
         baseSpecies: 'Medicham'
     },
     'Metagross-Mega': {
-        types: ['Steel', 'Psyko'],
+        types: ['Steel', 'Psychic'],
         bs: { hp: 80, at: 145, df: 150, sa: 105, sd: 110, sp: 110 },
         weightkg: 942.9,
         abilities: { 0: 'Griffe Dure' },
@@ -5772,7 +5772,7 @@ var XY_PATCH = {
         gender: 'N'
     },
     'Mewtwo-Mega-X': {
-        types: ['Psyko', 'Fighting'],
+        types: ['Psychic', 'Fighting'],
         bs: { hp: 106, at: 190, df: 100, sa: 154, sd: 100, sp: 130 },
         weightkg: 127,
         abilities: { 0: 'Impassible' },
@@ -5780,7 +5780,7 @@ var XY_PATCH = {
         gender: 'N'
     },
     'Mewtwo-Mega-Y': {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 106, at: 150, df: 70, sa: 194, sd: 120, sp: 140 },
         weightkg: 33,
         abilities: { 0: 'Insomnia' },
@@ -5845,7 +5845,7 @@ var XY_PATCH = {
         baseSpecies: 'Sharpedo'
     },
     'Slowbro-Mega': {
-        types: ['Water', 'Psyko'],
+        types: ['Water', 'Psychic'],
         bs: { hp: 95, at: 75, df: 180, sa: 130, sd: 80, sp: 30 },
         weightkg: 120,
         abilities: { 0: 'Coque Armure' },
@@ -5880,14 +5880,14 @@ var XY_PATCH = {
         baseSpecies: 'Venusaur'
     },
     Meowstic: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 74, at: 48, df: 76, sa: 83, sd: 81, sp: 104 },
         weightkg: 8.5,
         abilities: { 0: 'Regard Vif' },
         otherFormes: ['Meowstic-F']
     },
     'Meowstic-F': {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 74, at: 48, df: 76, sa: 83, sd: 81, sp: 104 },
         weightkg: 8.5,
         abilities: { 0: 'Regard Vif' },
@@ -6311,7 +6311,7 @@ var SM_PATCH = {
         abilities: { 0: 'Torrent' }
     },
     Bruxish: {
-        types: ['Water', 'Psyko'],
+        types: ['Water', 'Psychic'],
         bs: { hp: 68, at: 105, df: 70, sa: 70, sd: 70, sp: 92 },
         weightkg: 19,
         abilities: { 0: 'Corps Coloré' }
@@ -6350,7 +6350,7 @@ var SM_PATCH = {
         abilities: { 0: 'Flora-Voile' }
     },
     Cosmoem: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 43, at: 29, df: 131, sa: 29, sd: 131, sp: 37 },
         weightkg: 999.9,
         nfe: true,
@@ -6365,7 +6365,7 @@ var SM_PATCH = {
         abilities: { 0: 'Torrent' }
     },
     Cosmog: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 43, at: 29, df: 31, sa: 29, sd: 31, sp: 37 },
         weightkg: 0.1,
         nfe: true,
@@ -6623,7 +6623,7 @@ var SM_PATCH = {
         abilities: { 0: 'Brasier' }
     },
     Lunala: {
-        types: ['Psyko', 'Ghost'],
+        types: ['Psychic', 'Ghost'],
         bs: { hp: 137, at: 113, df: 89, sa: 137, sd: 107, sp: 97 },
         weightkg: 120,
         abilities: { 0: 'Spectro-Bouclier' },
@@ -6807,7 +6807,7 @@ var SM_PATCH = {
         gender: 'N'
     },
     Necrozma: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 97, at: 107, df: 101, sa: 127, sd: 89, sp: 79 },
         weightkg: 230,
         abilities: { 0: 'Prisme-Armure' },
@@ -6815,7 +6815,7 @@ var SM_PATCH = {
         gender: 'N'
     },
     'Necrozma-Dawn-Wings': {
-        types: ['Psyko', 'Ghost'],
+        types: ['Psychic', 'Ghost'],
         bs: { hp: 97, at: 113, df: 109, sa: 157, sd: 127, sp: 77 },
         weightkg: 350,
         abilities: { 0: 'Prisme-Armure' },
@@ -6823,7 +6823,7 @@ var SM_PATCH = {
         gender: 'N'
     },
     'Necrozma-Dusk-Mane': {
-        types: ['Psyko', 'Steel'],
+        types: ['Psychic', 'Steel'],
         bs: { hp: 97, at: 157, df: 127, sa: 113, sd: 109, sp: 77 },
         weightkg: 460,
         abilities: { 0: 'Prisme-Armure' },
@@ -6831,7 +6831,7 @@ var SM_PATCH = {
         gender: 'N'
     },
     'Necrozma-Ultra': {
-        types: ['Psyko', 'Dragon'],
+        types: ['Psychic', 'Dragon'],
         bs: { hp: 97, at: 167, df: 97, sa: 167, sd: 97, sp: 129 },
         weightkg: 230,
         abilities: { 0: 'Cérébro-Force' },
@@ -6853,7 +6853,7 @@ var SM_PATCH = {
         baseSpecies: 'Ninetales'
     },
     Oranguru: {
-        types: ['Normal', 'Psyko'],
+        types: ['Normal', 'Psychic'],
         bs: { hp: 90, at: 60, df: 80, sa: 90, sd: 110, sp: 60 },
         weightkg: 76,
         abilities: { 0: 'Attention' }
@@ -6866,7 +6866,7 @@ var SM_PATCH = {
         otherFormes: ['Oricorio-Pa\'u', 'Oricorio-Pom-Pom', 'Oricorio-Sensu']
     },
     'Oricorio-Pa\'u': {
-        types: ['Psyko', 'Flying'],
+        types: ['Psychic', 'Flying'],
         bs: { hp: 75, at: 70, df: 70, sa: 98, sd: 70, sp: 93 },
         weightkg: 3.4,
         abilities: { 0: 'Danseuse' },
@@ -7009,7 +7009,7 @@ var SM_PATCH = {
         abilities: { 0: 'Expuls`\'Organes' }
     },
     'Raichu-Alola': {
-        types: ['Electric', 'Psyko'],
+        types: ['Electric', 'Psychic'],
         bs: { hp: 60, at: 85, df: 50, sa: 95, sd: 85, sp: 110 },
         weightkg: 21,
         baseSpecies: 'Raichu',
@@ -7245,7 +7245,7 @@ var SM_PATCH = {
         gender: 'N'
     },
     'Silvally-Psychic': {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         weightkg: 100.5,
         abilities: { 0: 'Système Alpha' },
@@ -7303,7 +7303,7 @@ var SM_PATCH = {
         abilities: { 0: 'Torrent' }
     },
     Solgaleo: {
-        types: ['Psyko', 'Steel'],
+        types: ['Psychic', 'Steel'],
         bs: { hp: 137, at: 137, df: 107, sa: 113, sd: 89, sp: 97 },
         weightkg: 230,
         abilities: { 0: 'Métallo-Garde' },
@@ -7359,7 +7359,7 @@ var SM_PATCH = {
         gender: 'N'
     },
     'Tapu Lele': {
-        types: ['Psyko', 'Fairy'],
+        types: ['Psychic', 'Fairy'],
         bs: { hp: 70, at: 85, df: 75, sa: 130, sd: 115, sp: 95 },
         weightkg: 18.6,
         abilities: { 0: 'Créa-Psy' },
@@ -7623,7 +7623,7 @@ var SS_PATCH = {
         nfe: true
     },
     'Articuno-Galar': {
-        types: ['Psyko', 'Flying'],
+        types: ['Psychic', 'Flying'],
         bs: { hp: 90, at: 85, df: 85, sa: 125, sd: 100, sp: 95 },
         weightkg: 50.9,
         abilities: { 0: 'Battant' },
@@ -7670,7 +7670,7 @@ var SS_PATCH = {
         baseSpecies: 'Butterfree'
     },
     Calyrex: {
-        types: ['Psyko', 'Grass'],
+        types: ['Psychic', 'Grass'],
         bs: { hp: 100, at: 80, df: 80, sa: 80, sd: 80, sp: 80 },
         weightkg: 7.7,
         abilities: { 0: 'Tension' },
@@ -7678,7 +7678,7 @@ var SS_PATCH = {
         otherFormes: ['Calyrex-Ice', 'Calyrex-Shadow']
     },
     'Calyrex-Ice': {
-        types: ['Psyko', 'Ice'],
+        types: ['Psychic', 'Ice'],
         bs: { hp: 100, at: 165, df: 150, sa: 85, sd: 130, sp: 50 },
         weightkg: 809.1,
         abilities: { 0: 'Osmose Équine (Blizzeval)' },
@@ -7686,7 +7686,7 @@ var SS_PATCH = {
         baseSpecies: 'Calyrex'
     },
     'Calyrex-Shadow': {
-        types: ['Psyko', 'Ghost'],
+        types: ['Psychic', 'Ghost'],
         bs: { hp: 100, at: 85, df: 80, sa: 165, sd: 100, sp: 150 },
         weightkg: 53.6,
         abilities: { 0: 'Osmose Équine (Spectreval)' },
@@ -7870,7 +7870,7 @@ var SS_PATCH = {
         baseSpecies: 'Darumaka'
     },
     Dottler: {
-        types: ['Bug', 'Psyko'],
+        types: ['Bug', 'Psychic'],
         bs: { hp: 50, at: 35, df: 80, sa: 50, sd: 90, sp: 30 },
         weightkg: 19.5,
         abilities: { 0: 'Essaim' },
@@ -8091,28 +8091,28 @@ var SS_PATCH = {
         nfe: true
     },
     Hatenna: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 42, at: 30, df: 45, sa: 56, sd: 53, sp: 39 },
         weightkg: 3.4,
         abilities: { 0: 'Cœur Soin' },
         nfe: true
     },
     Hatterene: {
-        types: ['Psyko', 'Fairy'],
+        types: ['Psychic', 'Fairy'],
         bs: { hp: 57, at: 90, df: 95, sa: 136, sd: 103, sp: 29 },
         weightkg: 5.1,
         abilities: { 0: 'Cœur Soin' },
         otherFormes: ['Hatterene-Gmax']
     },
     'Hatterene-Gmax': {
-        types: ['Psyko', 'Fairy'],
+        types: ['Psychic', 'Fairy'],
         bs: { hp: 57, at: 90, df: 95, sa: 136, sd: 103, sp: 29 },
         weightkg: 0,
         abilities: { 0: 'Cœur Soin' },
         baseSpecies: 'Hatterene'
     },
     Hattrem: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 57, at: 40, df: 65, sa: 86, sd: 73, sp: 49 },
         weightkg: 4.8,
         abilities: { 0: 'Cœur Soin' },
@@ -8126,14 +8126,14 @@ var SS_PATCH = {
         nfe: true
     },
     Indeedee: {
-        types: ['Psyko', 'Normal'],
+        types: ['Psychic', 'Normal'],
         bs: { hp: 60, at: 65, df: 55, sa: 105, sd: 95, sp: 95 },
         weightkg: 28,
         abilities: { 0: 'Attention' },
         otherFormes: ['Indeedee-F']
     },
     'Indeedee-F': {
-        types: ['Psyko', 'Normal'],
+        types: ['Psychic', 'Normal'],
         bs: { hp: 70, at: 55, df: 65, sa: 95, sd: 105, sp: 85 },
         weightkg: 28,
         abilities: { 0: 'Tempo Perso' },
@@ -8271,7 +8271,7 @@ var SS_PATCH = {
         baseSpecies: 'Morpeko'
     },
     'Mr. Mime-Galar': {
-        types: ['Ice', 'Psyko'],
+        types: ['Ice', 'Psychic'],
         bs: { hp: 50, at: 65, df: 65, sa: 90, sd: 90, sp: 100 },
         weightkg: 56.8,
         abilities: { 0: 'Esprit Vital' },
@@ -8279,7 +8279,7 @@ var SS_PATCH = {
         baseSpecies: 'Mr. Mime'
     },
     'Mr. Rime': {
-        types: ['Ice', 'Psyko'],
+        types: ['Ice', 'Psychic'],
         bs: { hp: 80, at: 85, df: 75, sa: 110, sd: 100, sp: 70 },
         weightkg: 58.2,
         abilities: { 0: 'Pied Confus' }
@@ -8298,14 +8298,14 @@ var SS_PATCH = {
         abilities: { 0: 'Téméraire' }
     },
     Orbeetle: {
-        types: ['Bug', 'Psyko'],
+        types: ['Bug', 'Psychic'],
         bs: { hp: 60, at: 45, df: 110, sa: 80, sd: 120, sp: 90 },
         weightkg: 40.8,
         abilities: { 0: 'Essaim' },
         otherFormes: ['Orbeetle-Gmax']
     },
     'Orbeetle-Gmax': {
-        types: ['Bug', 'Psyko'],
+        types: ['Bug', 'Psychic'],
         bs: { hp: 60, at: 45, df: 110, sa: 80, sd: 120, sp: 90 },
         weightkg: 0,
         abilities: { 0: 'Essaim' },
@@ -8354,7 +8354,7 @@ var SS_PATCH = {
         gender: 'N'
     },
     'Ponyta-Galar': {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 50, at: 85, df: 55, sa: 65, sd: 65, sp: 90 },
         weightkg: 24,
         abilities: { 0: 'Fuite' },
@@ -8369,7 +8369,7 @@ var SS_PATCH = {
         nfe: true
     },
     'Rapidash-Galar': {
-        types: ['Psyko', 'Fairy'],
+        types: ['Psychic', 'Fairy'],
         bs: { hp: 65, at: 100, df: 70, sa: 80, sd: 80, sp: 105 },
         weightkg: 80,
         abilities: { 0: 'Fuite' },
@@ -8503,21 +8503,21 @@ var SS_PATCH = {
         nfe: true
     },
     'Slowbro-Galar': {
-        types: ['Poison', 'Psyko'],
+        types: ['Poison', 'Psychic'],
         bs: { hp: 95, at: 100, df: 95, sa: 100, sd: 70, sp: 30 },
         weightkg: 70.5,
         abilities: { 0: 'Tir Vif' },
         baseSpecies: 'Slowbro'
     },
     'Slowking-Galar': {
-        types: ['Poison', 'Psyko'],
+        types: ['Poison', 'Psychic'],
         bs: { hp: 95, at: 65, df: 80, sa: 110, sd: 110, sp: 30 },
         weightkg: 79.5,
         abilities: { 0: 'Breuvage Suspect' },
         baseSpecies: 'Slowking'
     },
     'Slowpoke-Galar': {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 90, at: 65, df: 65, sa: 40, sd: 40, sp: 15 },
         weightkg: 36,
         nfe: true,
@@ -8824,7 +8824,7 @@ var PLA_PATCH = {
         nfe: true
     },
     'Braviary-Hisui': {
-        types: ['Psyko', 'Flying'],
+        types: ['Psychic', 'Flying'],
         bs: { hp: 110, at: 83, df: 70, sa: 112, sd: 70, sp: 65 },
         weightkg: 43.4,
         abilities: { 0: 'Regard Vif' },
@@ -8969,7 +8969,7 @@ var PLA_PATCH = {
         nfe: true
     },
     Wyrdeer: {
-        types: ['Normal', 'Psyko'],
+        types: ['Normal', 'Psychic'],
         bs: { hp: 103, at: 105, df: 72, sa: 105, sd: 75, sp: 65 },
         weightkg: 95.1,
         abilities: { 0: 'Intimidation' }
@@ -9025,7 +9025,7 @@ var SV_PATCH = {
         nfe: true
     },
     Armarouge: {
-        types: ['Fire', 'Psyko'],
+        types: ['Fire', 'Psychic'],
         bs: { hp: 85, at: 60, df: 100, sa: 125, sd: 80, sp: 75 },
         weightkg: 85,
         abilities: { 0: 'Torche' }
@@ -9168,13 +9168,13 @@ var SV_PATCH = {
         baseSpecies: 'Dudunsparce'
     },
     Espathra: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 95, at: 60, df: 60, sa: 101, sd: 60, sp: 105 },
         weightkg: 90,
         abilities: { 0: 'Opportuniste' }
     },
     Farigiraf: {
-        types: ['Normal', 'Psyko'],
+        types: ['Normal', 'Psychic'],
         bs: { hp: 120, at: 90, df: 70, sa: 110, sd: 70, sp: 60 },
         weightkg: 160,
         abilities: { 0: 'Ruminant' }
@@ -9200,7 +9200,7 @@ var SV_PATCH = {
         abilities: { 0: 'Querelleur' }
     },
     Flittle: {
-        types: ['Psyko'],
+        types: ['Psychic'],
         bs: { hp: 30, at: 35, df: 30, sa: 55, sd: 40, sp: 75 },
         weightkg: 1.5,
         abilities: { 0: 'Anticipation' },
@@ -9519,7 +9519,7 @@ var SV_PATCH = {
         nfe: true
     },
     Rabsca: {
-        types: ['Bug', 'Psyko'],
+        types: ['Bug', 'Psychic'],
         bs: { hp: 75, at: 50, df: 85, sa: 115, sd: 100, sp: 45 },
         weightkg: 3.5,
         abilities: { 0: 'Synchro' }
@@ -9558,7 +9558,7 @@ var SV_PATCH = {
         abilities: { 0: 'Chlorophylle' }
     },
     'Scream Tail': {
-        types: ['Fairy', 'Psyko'],
+        types: ['Fairy', 'Psychic'],
         bs: { hp: 115, at: 65, df: 99, sa: 65, sd: 115, sp: 111 },
         weightkg: 8,
         gender: 'N',
@@ -9729,7 +9729,7 @@ var SV_PATCH = {
         nfe: true
     },
     Veluza: {
-        types: ['Water', 'Psyko'],
+        types: ['Water', 'Psychic'],
         bs: { hp: 90, at: 102, df: 73, sa: 78, sd: 65, sp: 70 },
         weightkg: 90,
         abilities: { 0: 'Brise Moule' }

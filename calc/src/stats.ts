@@ -18,7 +18,7 @@ type HPTypeName = Exclude<TypeName, 'Normal' | 'Fairy' | '???'>;
 
 const HP_TYPES = [
   'Fighting', 'Flying', 'Poison', 'Ground', 'Rock', 'Bug', 'Ghost', 'Steel',
-  'Fire', 'Water', 'Grass', 'Electric', 'Psyko', 'Ice', 'Dragon', 'Dark',
+  'Fire', 'Water', 'Grass', 'Electric', 'Psychic', 'Ice', 'Dragon', 'Dark',
 ];
 
 const HP: {[type in HPTypeName]: {ivs: Partial<StatsTable>; dvs: Partial<StatsTable>}} = {

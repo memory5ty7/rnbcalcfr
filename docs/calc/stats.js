@@ -14,7 +14,7 @@ var SV = GSC;
 exports.STATS = [[], RBY, GSC, ADV, DPP, BW, XY, SM, SS, SV];
 var HP_TYPES = [
     'Fighting', 'Flying', 'Poison', 'Ground', 'Rock', 'Bug', 'Ghost', 'Steel',
-    'Fire', 'Water', 'Grass', 'Electric', 'Psyko', 'Ice', 'Dragon', 'Dark',
+    'Fire', 'Water', 'Grass', 'Electric', 'Psychic', 'Ice', 'Dragon', 'Dark',
 ];
 var HP = {
     Bug: { ivs: { atk: 30, def: 30, spd: 30 }, dvs: { atk: 13, def: 13 } },

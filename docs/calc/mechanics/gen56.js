@@ -178,7 +178,7 @@ function calculateBWXY(gen, attacker, defender, move, field) {
         desc.defenderItem = defender.item;
         return result;
     }
-    if (move.priority > 0 && field.hasTerrain('Psyko') && (0, util_2.isGrounded)(defender, field)) {
+    if (move.priority > 0 && field.hasTerrain('Psychic') && (0, util_2.isGrounded)(defender, field)) {
         desc.terrain = field.terrain;
         return result;
     }

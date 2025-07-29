@@ -2,7 +2,7 @@
 exports.__esModule = true;
 
 var util_1 = require("./util");
-var SPECIAL = ['Fire', 'Water', 'Grass', 'Electric', 'Ice', 'Psyko', 'Dark', 'Dragon'];
+var SPECIAL = ['Fire', 'Water', 'Grass', 'Electric', 'Ice', 'Psychic', 'Dark', 'Dragon'];
 var Move = (function () {
     function Move(gen, name, options) {
         if (options === void 0) { options = {}; }
@@ -280,7 +280,7 @@ function getMaxMoveName(moveType, pokemonSpecies, isStatus, pokemonAbility) {
         return 'Rafale G-Max';
     if (moveType === 'Dragon' && pokemonSpecies === 'Duraludon-Gmax')
         return 'Usure G-Max';
-    if (moveType === 'Psyko' && pokemonSpecies === 'Orbeetle-Gmax')
+    if (moveType === 'Psychic' && pokemonSpecies === 'Orbeetle-Gmax')
         return 'Ondes G-Max';
     if (moveType === 'Rock' && pokemonSpecies === 'Coalossal-Gmax')
         return 'Fournaise G-Max';
