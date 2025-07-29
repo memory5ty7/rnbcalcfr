@@ -7118,7 +7118,7 @@ var SM_PATCH = {
         types: ['Normal'],
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         weightkg: 100.5,
-        abilities: { 0: 'RKS System' },
+        abilities: { 0: 'Système Alpha' },
         gender: 'N',
         otherFormes: [
             'Silvally-Bug',
@@ -7144,7 +7144,7 @@ var SM_PATCH = {
         types: ['Bug'],
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         weightkg: 100.5,
-        abilities: { 0: 'RKS System' },
+        abilities: { 0: 'Système Alpha' },
         baseSpecies: 'Silvally',
         gender: 'N'
     },
@@ -7152,7 +7152,7 @@ var SM_PATCH = {
         types: ['Dark'],
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         weightkg: 100.5,
-        abilities: { 0: 'RKS System' },
+        abilities: { 0: 'Système Alpha' },
         baseSpecies: 'Silvally',
         gender: 'N'
     },
@@ -7160,7 +7160,7 @@ var SM_PATCH = {
         types: ['Dragon'],
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         weightkg: 100.5,
-        abilities: { 0: 'RKS System' },
+        abilities: { 0: 'Système Alpha' },
         baseSpecies: 'Silvally',
         gender: 'N'
     },
@@ -7168,7 +7168,7 @@ var SM_PATCH = {
         types: ['Electric'],
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         weightkg: 100.5,
-        abilities: { 0: 'RKS System' },
+        abilities: { 0: 'Système Alpha' },
         baseSpecies: 'Silvally',
         gender: 'N'
     },
@@ -7176,7 +7176,7 @@ var SM_PATCH = {
         types: ['Fairy'],
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         weightkg: 100.5,
-        abilities: { 0: 'RKS System' },
+        abilities: { 0: 'Système Alpha' },
         baseSpecies: 'Silvally',
         gender: 'N'
     },
@@ -7184,7 +7184,7 @@ var SM_PATCH = {
         types: ['Fighting'],
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         weightkg: 100.5,
-        abilities: { 0: 'RKS System' },
+        abilities: { 0: 'Système Alpha' },
         baseSpecies: 'Silvally',
         gender: 'N'
     },
@@ -7192,7 +7192,7 @@ var SM_PATCH = {
         types: ['Fire'],
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         weightkg: 100.5,
-        abilities: { 0: 'RKS System' },
+        abilities: { 0: 'Système Alpha' },
         baseSpecies: 'Silvally',
         gender: 'N'
     },
@@ -7200,7 +7200,7 @@ var SM_PATCH = {
         types: ['Flying'],
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         weightkg: 100.5,
-        abilities: { 0: 'RKS System' },
+        abilities: { 0: 'Système Alpha' },
         baseSpecies: 'Silvally',
         gender: 'N'
     },
@@ -7208,7 +7208,7 @@ var SM_PATCH = {
         types: ['Ghost'],
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         weightkg: 100.5,
-        abilities: { 0: 'RKS System' },
+        abilities: { 0: 'Système Alpha' },
         baseSpecies: 'Silvally',
         gender: 'N'
     },
@@ -7216,7 +7216,7 @@ var SM_PATCH = {
         types: ['Grass'],
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         weightkg: 100.5,
-        abilities: { 0: 'RKS System' },
+        abilities: { 0: 'Système Alpha' },
         baseSpecies: 'Silvally',
         gender: 'N'
     },
@@ -7224,7 +7224,7 @@ var SM_PATCH = {
         types: ['Ground'],
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         weightkg: 100.5,
-        abilities: { 0: 'RKS System' },
+        abilities: { 0: 'Système Alpha' },
         baseSpecies: 'Silvally',
         gender: 'N'
     },
@@ -7232,7 +7232,7 @@ var SM_PATCH = {
         types: ['Ice'],
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         weightkg: 100.5,
-        abilities: { 0: 'RKS System' },
+        abilities: { 0: 'Système Alpha' },
         baseSpecies: 'Silvally',
         gender: 'N'
     },
@@ -7240,7 +7240,7 @@ var SM_PATCH = {
         types: ['Poison'],
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         weightkg: 100.5,
-        abilities: { 0: 'RKS System' },
+        abilities: { 0: 'Système Alpha' },
         baseSpecies: 'Silvally',
         gender: 'N'
     },
@@ -7248,7 +7248,7 @@ var SM_PATCH = {
         types: ['Psychic'],
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         weightkg: 100.5,
-        abilities: { 0: 'RKS System' },
+        abilities: { 0: 'Système Alpha' },
         baseSpecies: 'Silvally',
         gender: 'N'
     },
@@ -7256,7 +7256,7 @@ var SM_PATCH = {
         types: ['Rock'],
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         weightkg: 100.5,
-        abilities: { 0: 'RKS System' },
+        abilities: { 0: 'Système Alpha' },
         baseSpecies: 'Silvally',
         gender: 'N'
     },
@@ -7264,7 +7264,7 @@ var SM_PATCH = {
         types: ['Steel'],
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         weightkg: 100.5,
-        abilities: { 0: 'RKS System' },
+        abilities: { 0: 'Système Alpha' },
         baseSpecies: 'Silvally',
         gender: 'N'
     },
@@ -7272,7 +7272,7 @@ var SM_PATCH = {
         types: ['Water'],
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         weightkg: 100.5,
-        abilities: { 0: 'RKS System' },
+        abilities: { 0: 'Système Alpha' },
         baseSpecies: 'Silvally',
         gender: 'N'
     },
